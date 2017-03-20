@@ -1,0 +1,18 @@
+dependencies {
+
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:support-v4:25.2.0'
+
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    <% if enable_facebook %>
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    <% end %>
+    <% if enable_google %>
+    compile 'com.google.android.gms:play-services-auth:10.2.0'
+    <% end %>
+}
+<% if enable_google %>
+apply plugin: 'com.google.gms.google-services'
+<% end %>

@@ -1,0 +1,70 @@
+{
+  "params": {
+    "directory": {
+      "message": "What is the directory "
+    },
+    "package_name": {
+      "message": "What is your package name?"
+    },
+    "app_name": {
+      "message": "What are you calling your app?"
+    },
+    "target_sdk": {
+      "message": "What is the target sdk?"
+    },
+    "min_sdk": {
+      "message": "What is the minimum sdk you want to support?"
+    }
+  },
+  "tasks": {
+    "copy_template_directory": [
+      {
+        "from": "<%= base_dir %>/template/app/libs",
+        "to": "<%= directory %>/<=% app_name %>/app/libs"
+      },
+      {
+        "from": "<%= base_dir %>/template/app/src/main/java/com/innovatube/boilerplate",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>"
+      },
+      {
+        "from": "<%= base_dir %>/template/app/src/test/com/innovatube/boilerplate",
+        "to": "<%= directory %>/<%= app_name %>/app/src/test/java/<%= package_name.gsub('.','/') %>"
+      },
+      {
+        "from": "<%= base_dir %>/template/app/src/androidTest/java/com/innovatube/boilerplate",
+        "to": "<%= directory %>/<%= app_name %>/app/src/androidTest/java/<%= package_name.gsub('.','/') %>"
+      },
+      {
+        "from": "<%= base_dir %>/template/app/src/main/res",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res"
+      }
+    ],
+    "copy_template_file": [
+      {
+        "from": "<%= base_dir %>/template/app/src/main/AndroidManifest.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/AndroidManifest.xml"
+      },
+      {
+        "from": "<%= base_dir %>/template/app/build.gradle",
+        "to": "<%= directory %>/<%= app_name %>/app/src/build.gradle"
+      }
+    ],
+    "copy_file": [
+      {
+        "from": "<%= base_dir %>/template/.gitignore",
+        "to": "<%= directory %>/<%= app_name %>/.gitignore"
+      },
+      {
+        "from": "<%= base_dir %>/template/app/proguard-rules.pro",
+        "to": "<%= directory %>/<%= app_name %>/app/proguard-rules.pro"
+      }
+    ],
+    "copy_directory": [
+      {
+        "from": "<%= base_dir %>/template/gradle",
+        "to": "<%= directory %>/<%= app_name %>/gradle"
+      }
+    ]
+  },
+  "extra_tasks":[]
+}

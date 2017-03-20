@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">asd</string>
+    <string name="facebook_app_id">324</string>
+    <string name="login_activity_title">Login</string>
+    <string name="listar_fragment_title">List Car</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bid">Bid</string>
+</resources>

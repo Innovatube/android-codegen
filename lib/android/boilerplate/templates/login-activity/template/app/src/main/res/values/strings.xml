@@ -1,0 +1,15 @@
+<resources>
+  <% if enable_email %>
+  <string name="login_email_hint">Email</string>
+  <string name="login_password_hint">Password</string>
+  <string name="login_button_text">Login</string>
+  <string name="sign_up_text">Sign Up</string>
+  <% end %>
+  <% if enable_facebook %>
+  <string name="login_facebook_description">Login with facebook</string>
+  <string name="facebook_app_id"><%= facebook_app_id %></string>
+  <% end %>
+  <% if enable_facebook %>
+  <string name="login_google_description">Login with google</string>
+  <% end %>
+</resources>

@@ -1,0 +1,43 @@
+{
+  "params": {
+    "package_name": {
+      "message": "What is your package name?",
+      "required": true
+    },
+    "directory": {
+      "message": "Where is your root directory?(leave it empty to use current directory)"
+    },
+    "sub_package": {
+      "message": "Sub package for this param?(leave it empty to use base package)"
+    },
+    "enable_facebook": {
+      "type": "boolean",
+      "message": "Do you want to enable login by facebook?"
+    },
+    "enable_google": {
+      "type": "boolean",
+      "message": "Do you want to enable login by google?"
+    },
+    "enable_email": {
+      "type": "boolean",
+      "message": "Do you want to enable login by email?"
+    },
+    "facebook_app_id": {
+      "message": "Enter your facebook app id if you already have ?(leave it empty to create a new facebook app)",
+      "require_true": [
+        "enable_facebook"
+      ],
+      "default": ""
+    }
+  },
+  "tasks": {
+    "copy_template_directory": [
+    ],
+    "copy_directory": [],
+    "copy_template_file": [],
+    "copy_file": []
+  },
+  "extra_tasks":[
+
+  ]
+}
