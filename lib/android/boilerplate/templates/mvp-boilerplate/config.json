@@ -31,8 +31,8 @@
       "message": "Enter your facebook app id: (leave it empty to create a new facebook app)",
       "require_true": "enable_facebook_login"
     },
-    "generate_model": {
-      "message": "Do you want to generate model?",
+    "swagger_codegen": {
+      "message": "Do you want to generate source code from swagger?",
       "type": "boolean"
     }
   },
@@ -178,8 +178,8 @@
   },
   "extra_tasks": [
     {
-      "name": "generate_model",
-      "require_true": ["generate_model"]
+      "name": "swagger_codegen",
+      "require_true": ["swagger_codegen"]
     },
     {
       "name": "generate_facebook_hash",

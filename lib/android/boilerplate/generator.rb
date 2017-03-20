@@ -24,7 +24,7 @@ module AndroidBoilerplate
     # copy file from source to target
     # source    :   input file location
     # target    :   output file location
-    def copy_file(source, target)
+    def copy_file(source, target, exclude = [])
       if File.exist? target
         raise IOError, "#{target} already exist!"
       end
@@ -35,18 +35,13 @@ module AndroidBoilerplate
     # copy directory from source to target
     # source           :   input folder location
     # target           :   output folder location
-    # sub_directory    :   sub directory in target folder
+    # exclude          :   file/folder will be ignored
     # IOError will be raised if target folder already exists
-    def copy_directory(source, target, sub_directory='')
-      if sub_directory != ''
-        final_destination = File.join(target, sub_directory)
-      else
-        final_destination = target
-      end
-      raise IOError, "#{final_destination} already exist!" if File.exist? final_destination
-      make_parent_dir final_destination
-      FileUtils.copy_entry(source, final_destination)
-      puts "\tcreate file \t#{final_destination}"
+    def copy_directory(source, target, exclude = [])
+      raise IOError, "#{target} already exist!" if File.exist? target
+      make_parent_dir target
+      FileUtils.copy_entry(source, target)
+      puts "\tcreate file \t#{target}"
     end
 
     # copy directory from source to target and generate file content with options
@@ -73,7 +68,7 @@ module AndroidBoilerplate
 
     # Check if item should be ignored or not
     # item    :   item to be checked
-    # exluce  :   exclude array
+    # exclude  :   exclude array
     def exclude_match?(item, exclude)
       return false if exclude.nil?
       exclude.each { |exclude_entry| return true if item.include?(exclude_entry) }
@@ -83,8 +78,9 @@ module AndroidBoilerplate
     # generate file from source with erubis then copy it to target folder
     # source           :   input file location
     # target           :   output file location
+    # exclude          :   file/folder will be ignored
     # IOError will be raised if target file already exists!
-    def copy_template_file(source, target)
+    def copy_template_file(source, target, exclude = [])
       raise IOError, "#{target} already exist!" if File.exist? target
       make_parent_dir target
       template = render_template(source)
@@ -115,6 +111,7 @@ module AndroidBoilerplate
     # item           :   input file location
     def render_template(input)
       template = File.read(File.join(input))
+      erubis = Erubis::Eruby.new(template)
       erubis = Erubis::Eruby.new(template)
       erubis.result(self.options)
     end

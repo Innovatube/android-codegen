@@ -19,11 +19,13 @@ module AndroidBoilerplate
 
     desc 'greeting', 'This command will say hello to you'
     option :name, :type => 'string'
+
     def greeting
       puts "Hello #{options[:name]}"
     end
 
     desc 'generate', 'this command will generate boilerplate project'
+
     def generate
       dir = File.join(File.dirname(__FILE__), 'templates')
       new_options = Hash.new
@@ -54,19 +56,19 @@ module AndroidBoilerplate
       erubis = Erubis::Eruby.new(config_file)
       param_json = JSON.parse(erubis.result(new_options))
       generator = AndroidBoilerplate::Generator.new(new_options)
-      task_list = %w(copy_template_directory copy_directory copy_file copy_template_file)
+      task_list = %w(copy_template_directory copy_template_file copy_file copy_directory)
       task_list.each do |task_name|
         param_json['tasks'][task_name].each do |task|
           next if !task['require_true'].nil? && !new_options[task['require_true']]
           next if !task['require_false'].nil? && new_options[task['require_false']]
-          generator.copy_template_directory(task['from'], task['to'], task['exclude']) unless param_json['tasks']['copy_template_directory'].nil?
+          generator.send(task_name, task['from'], task['to'], task['exclude']) unless param_json['tasks'][task_name].nil?
         end
       end
       param_json['extra_tasks'].each do |task|
         next if !AndroidBoilerplate::Utilities.task_satisfy?(task, new_options)
         case task['name']
-          when 'generate_model'
-            generate_model(new_options)
+          when 'swagger_codegen'
+            swagger_codegen(new_options)
           when 'generate_facebook_hash'
             generate_key_hash
         end
@@ -91,24 +93,30 @@ module AndroidBoilerplate
       end
     end
 
-    desc 'generate-model', 'Generate model from Swagger YAML'
-    def generate_model(old_options = nil)
+    desc 'swagger-codegen', 'Generate model or rxJava from Swagger YAML'
+
+    def swagger_codegen(old_options = nil)
       system('brew install swagger-codegen') unless AndroidBoilerplate::Utilities.command_available?('swagger-codegen')
-        system('brew install swagger-codegen')
+      system('brew install swagger-codegen')
       if old_options.nil?
         old_options = Hash.new
-        old_options['package_name'] = ask('Package name for your models:')
-        old_options['directory'] = ask('Which directory you want to store your models')
+        old_options['directory'] = ask('Which directory you want to store your models?')
+        old_options['package_name'] = ask('Package name: ')
       end
       yaml_file = ask('Enter path name for swagger file (url or local path): ')
-      model=ask('Enter the model you want to generate:')
-      model_package = "#{old_options['package_name']}.models"
+      old_options['generate_rx_java2'] = (ask('Do you want to generate RxJava2 alongside with model?', :limited_to => %w(yes no)) == 'yes')
+      model_package = "#{old_options['package_name']}.data.models"
+      api_package = "#{old_options['package_name']}.api"
+      swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore-retrofit2rx2') if old_options['generate_rx_java2']
+      swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore-model') unless old_options['generate_rx_java2']
+      swagger_config = File.join(File.dirname(__FILE__), 'swagger', 'swagger-config.json')
       directory = "#{old_options['directory']}"
       directory = "#{directory}/#{old_options['app_name']}" unless old_options['app_name'].nil?
       directory = "#{directory}/app"
-      exec("swagger-codegen generate -i #{yaml_file} -l android --model-package #{model_package} -o #{directory} -Dmodels=#{model}")
+      target_swagger_ignore = File.join(directory, '.swagger-codegen-ignore')
+      FileUtils.mkpath (File.dirname(target_swagger_ignore)) unless File.exist?(File.dirname(target_swagger_ignore))
+      FileUtils.cp(swagger_ignore, target_swagger_ignore)
+      system("swagger-codegen generate -i #{yaml_file} -l java --model-package #{model_package} --api-package #{api_package} -o #{directory} -c #{swagger_config}")
     end
-
-
   end
 end
