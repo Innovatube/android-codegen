@@ -1,0 +1,77 @@
+{
+  "params": {
+    "directory": {
+      "message": "What is the directory?"
+    },
+    "package_name": {
+      "message": "What is your package name?"
+    },
+    "app_name": {
+      "message": "What are you calling your app?"
+    },
+    "target_sdk": {
+      "message": "What is the target sdk?"
+    },
+    "min_sdk": {
+      "message": "What is the minimum sdk you want to support?"
+    },
+    "enable_facebook_login": {
+      "message": "Do you want to enable Facebook Login?",
+      "type": "boolean"
+    },
+    "enable_google_login": {
+      "message": "Do you want to enable Google Login?",
+      "type": "boolean"
+    },
+    "navigation_drawer": {
+      "message": "Do you want to enable navigation drawer?",
+      "type": "boolean"
+    },
+    "facebook_app_id": {
+      "message": "Enter your facebook app id: (leave it empty to create a new facebook app)",
+      "require_true": "enable_facebook_login"
+    },
+    "swagger_codegen": {
+      "message": "Do you want to generate source code from swagger?",
+      "type": "boolean"
+    }
+  },
+  "tasks": {
+    "copy_template_directory": [
+      {
+        "from": "<%= base_dir %>",
+        "to": "<%= directory %>/<%= app_name %>",
+        "exclude": [
+          "/template_","/java/"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>",
+        "exclude": [
+          "/template/","/template_"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/test/java/com/innovatube/carbid",
+        "to": "<%= directory %>/<%= app_name %>/app/src/test/java/<%= package_name.gsub('.','/') %>",
+        "exclude": [
+          "/template/","/template_"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/androidTest/java/com/innovatube/carbid",
+        "to": "<%= directory %>/<%= app_name %>/app/src/androidTest/java/<%= package_name.gsub('.','/') %>",
+        "exclude": [
+          "/template/","/template_"
+        ]
+      }
+    ]
+  },
+  "extra_tasks": [
+    {
+      "name": "swagger_codegen",
+      "require_true": ["swagger_codegen"]
+    }
+  ]
+}

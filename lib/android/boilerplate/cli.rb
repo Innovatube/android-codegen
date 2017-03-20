@@ -35,7 +35,7 @@ module AndroidBoilerplate
       say "#{templates}", :green
       template = ask('template: ', :limited_to => templates)
       puts template
-      config_file = File.read(File.join(File.dirname(__FILE__), 'templates', template, 'config.json'));
+      config_file = File.read(File.join(File.dirname(__FILE__), 'templates', "#{template}-config.json"));
       param_json = JSON.parse(config_file)
       param_json['params'].keys.each { |param|
         next if !param_json['params'][param]['require_true'].nil? && !new_options[param_json['params'][param]['require_true']]
@@ -58,19 +58,23 @@ module AndroidBoilerplate
       generator = AndroidBoilerplate::Generator.new(new_options)
       task_list = %w(copy_template_directory copy_template_file copy_file copy_directory)
       task_list.each do |task_name|
+        next if param_json['tasks'][task_name].nil?
+        puts "#{task_name}"
         param_json['tasks'][task_name].each do |task|
           next if !task['require_true'].nil? && !new_options[task['require_true']]
           next if !task['require_false'].nil? && new_options[task['require_false']]
           generator.send(task_name, task['from'], task['to'], task['exclude']) unless param_json['tasks'][task_name].nil?
         end
       end
-      param_json['extra_tasks'].each do |task|
-        next if !AndroidBoilerplate::Utilities.task_satisfy?(task, new_options)
-        case task['name']
-          when 'swagger_codegen'
-            swagger_codegen(new_options)
-          when 'generate_facebook_hash'
-            generate_key_hash
+      unless param_json['extra_tasks'].nil?
+        param_json['extra_tasks'].each do |task|
+          next if !AndroidBoilerplate::Utilities.task_satisfy?(task, new_options)
+          case task['name']
+            when 'swagger_codegen'
+              swagger_codegen(new_options)
+            when 'generate_facebook_hash'
+              generate_key_hash
+          end
         end
       end
     end
