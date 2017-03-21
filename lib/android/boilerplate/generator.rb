@@ -6,7 +6,7 @@ require_relative 'resources_merger'
 #
 #@author::          Ethan Le
 #@usage::           Provide Generate operations which contain copy file, generate template
-#@revision::        date of the 20/3/2017
+#@revision::        21/3/2017
 #@todo::
 #@fixme::
 ##
@@ -93,12 +93,23 @@ module AndroidBoilerplate
     # target           :   output file location
     # IOError will be raised if target file already exists!
     # todo haven't implemented yet
-    def merge_template(source, target)
+    def merge_template_file(source, target, merge_type)
       new_options = self.options.dup
       new_options[:input_file] = render_template(source)
-      new_options[:output_file] = File.read(target)
-      new_options[:from] = source
-      new_options[:to] = target
+      unless File.exist?(target)
+        copy_template_file(source, target)
+      else
+        new_options[:output_file] = File.read(target)
+        new_options[:from] = source
+        new_options[:to] = target
+        merger = nil
+        case merge_type
+          when 'resources'
+            merger = AndroidBoilerplate::ResourcesMerger.new(new_options)
+        end
+        merge_result = merger.run
+        File.open(target, 'w') { |file| file.puts merge_result[:output_file] }
+      end
     end
 
     # Make directory for file

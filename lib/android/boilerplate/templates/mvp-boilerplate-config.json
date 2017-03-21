@@ -15,22 +15,6 @@
     "min_sdk": {
       "message": "What is the minimum sdk you want to support?"
     },
-    "enable_facebook_login": {
-      "message": "Do you want to enable Facebook Login?",
-      "type": "boolean"
-    },
-    "enable_google_login": {
-      "message": "Do you want to enable Google Login?",
-      "type": "boolean"
-    },
-    "navigation_drawer": {
-      "message": "Do you want to enable navigation drawer?",
-      "type": "boolean"
-    },
-    "facebook_app_id": {
-      "message": "Enter your facebook app id: (leave it empty to create a new facebook app)",
-      "require_true": "enable_facebook_login"
-    },
     "swagger_codegen": {
       "message": "Do you want to generate source code from swagger?",
       "type": "boolean"

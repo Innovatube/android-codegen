@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 require_relative '../../lib/android/boilerplate/generator'
 require_relative '../../lib/android/boilerplate/project_dependencies_merger'
-describe AndroidBoilerplate::DependenciesMerger do
+describe AndroidBoilerplate::ProjectDependenciesMerger do
 
   def input_file
     @input_file = File.read(File.join(File.dirname(__FILE__), 'input', 'build.gradle'))

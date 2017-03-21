@@ -3,7 +3,7 @@
 #
 #@author::          Ethan Le
 #@usage::           An Utilities to check if command is available and check task condition
-#@revision::        date of the 20/3/2017
+#@revision::        21/3/2017
 #@todo::            untested
 #@fixme::
 ##
@@ -52,6 +52,12 @@ module AndroidBoilerplate
         task['require_true'].each { |requirement| return false if !options[requirement] } unless task['require_true'].nil?
         task['require_false'].each { |requirement| return false if options[requirement]!= '' } unless task['require_false'].nil?
         return true
+      end
+
+      # Fix escape sequences for regular expression
+      # Replace ),(,[,] by /),/(,/[,/]
+      def encode_string(item)
+        item.gsub(/(\)|\(|\[|\])/,'/1')
       end
     end
   end

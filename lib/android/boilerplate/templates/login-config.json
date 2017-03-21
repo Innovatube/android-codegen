@@ -1,0 +1,69 @@
+{
+  "params": {
+    "directory": {
+      "message": "What is the directory?"
+    },
+    "package_name": {
+      "message": "What is your package name?"
+    },
+    "app_name": {
+      "message": "What are you calling your app?"
+    },
+    "target_sdk": {
+      "message": "What is the target sdk?"
+    },
+    "min_sdk": {
+      "message": "What is the minimum sdk you want to support?"
+    },
+    "enable_facebook_login": {
+      "message": "Do you want to enable Facebook Login?",
+      "type": "boolean"
+    },
+    "enable_google_login": {
+      "message": "Do you want to enable Google Login?",
+      "type": "boolean"
+    },
+    "facebook_app_id": {
+      "message": "Enter your facebook app id: (leave it empty to create a new facebook app)",
+      "require_true": "enable_facebook_login"
+    }
+  },
+  "tasks": {
+    "copy_template_directory": [
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/login",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login",
+        "exclude": [
+          "Presenter.java"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/login/FacebookLoginPresenter.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login/FacebookLoginPresenter.java",
+        "require_true": [
+          "enable_facebook_login"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/login/GoogleSignInPresenter.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login/GoogleSignInPresenter.java",
+        "require_true": [
+          "enable_google_login"
+        ]
+      }
+    ],
+    "copy_template_file": [
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_login.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/activity_login.xml"
+      }
+    ],
+    "merge_template_file": [
+      {
+        "from": "<%= base_dir %>/app/src/main/res/values/template_login_strings.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/values/strings.xml",
+        "merge_type": "resources"
+      }
+    ]
+  }
+}
