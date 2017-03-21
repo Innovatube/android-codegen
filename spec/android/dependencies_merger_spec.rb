@@ -21,7 +21,7 @@ describe AndroidBoilerplate::DependenciesMerger do
   end
 
   it 'should return true if dependencies is already exist' do
-    expect(dependencies_merger.exist_in_target?("compile 'com.android.support:design:25.2.0'", output_file)).to eq(true)
+    expect(dependencies_merger.exist_in_target?('compile "com.android.support:appcompat-v7:25.2.0"', output_file)).to eq(true)
   end
 
   it 'should return false if dependencies is not existed' do
@@ -29,7 +29,12 @@ describe AndroidBoilerplate::DependenciesMerger do
   end
 
   it 'should extract dependencies name correctly' do
-    expect(dependencies_merger.extract_name("compile 'com.android.support:design:25.2.0'")[0]).to eq('com.android.support:design')
+    expect(dependencies_merger.extract_name('compile "com.android.support:design:${supportLibrariesVersion}"')[0]).to eq('com.android.support:design')
+  end
+
+  it 'should merge dependencies correctly' do
+    result = dependencies_merger.run
+    expect(result[:output_file]).to eq(File.read(File.join(File.dirname(__FILE__), 'output', 'dependencies_result.gradle')))
   end
 
 end

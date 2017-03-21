@@ -50,5 +50,7 @@ dependencies {
     androidTestCompile("com.android.support.test.espresso:espresso-core:2.2.2", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile "com.google.android.gms:play-services-auth:${playServiceVersion}"
+    compile "com.facebook.android:facebook-android-sdk:${facebookSdkVersion}"
 }
 apply plugin: "com.google.gms.google-services"

@@ -1,5 +1,6 @@
 require 'erubis'
 require_relative 'resources_merger'
+require_relative 'dependencies_merger'
 
 ##
 #Class' description
@@ -106,9 +107,12 @@ module AndroidBoilerplate
         case merge_type
           when 'resources'
             merger = AndroidBoilerplate::ResourcesMerger.new(new_options)
+          when 'app_dependencies'
+            merger = AndroidBoilerplate::DependenciesMerger.new(new_options)
         end
         merge_result = merger.run
         File.open(target, 'w') { |file| file.puts merge_result[:output_file] }
+        puts "\tmerge file \t#{target}"
       end
     end
 
@@ -122,7 +126,6 @@ module AndroidBoilerplate
     # item           :   input file location
     def render_template(input)
       template = File.read(File.join(input))
-      erubis = Erubis::Eruby.new(template)
       erubis = Erubis::Eruby.new(template)
       erubis.result(self.options)
     end

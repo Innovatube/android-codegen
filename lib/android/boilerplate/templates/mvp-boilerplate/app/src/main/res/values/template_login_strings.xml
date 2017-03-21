@@ -1,6 +1,0 @@
-<resources>
-     <% if enable_facebook_login %>
-    <string name="facebook_app_id">453639134846634</string>
-     <% end %>
-    <string name="login_activity_title">Login</string>
-</resources>

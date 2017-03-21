@@ -19,8 +19,8 @@ module AndroidBoilerplate
     def initialize(options, dependencies_type = '')
       super(options)
       self.name_regex = /(?<=#{dependencies_type}\s'|").+(?=:)/
-      self.resource_regex = /\s+compile.+/
-      self.holder_regex = /(?<=dependencies\s{)(.+)(?=})/m
+      self.resource_regex = /(?<!{)\s+compile.+/
+      self.holder_regex = /(?<=dependencies\s{.)(.+)(?=})/m
       @dependencies_types = %w(compile testCompile apt annotationProcessor provided androidTestCompile classpath)
     end
 
@@ -31,7 +31,7 @@ module AndroidBoilerplate
     #  then return a result hash contains merged file and report
     def run
       @dependencies_types.each do |dependencies_type|
-        @resource_regex = /\s+#{dependencies_type}\s(?="|').+/
+        @resource_regex = /(?<!{).+#{dependencies_type}\s(?="|').+/
         @name_regex= /(?<=#{dependencies_type}\s'|").+(?=:)/
         input_file.scan(/#{@resource_regex}/) do |item|
           unless (exist_in_target?(item, output_file))
@@ -63,7 +63,7 @@ module AndroidBoilerplate
     # item    :   a single dependency to be merged
     # target  :   a target to merge
     def merge(item, target)
-      target.gsub!(holder_regex, "\\1#{item}")
+      target.gsub!(holder_regex, "\\1#{item}\n")
     end
   end
 end

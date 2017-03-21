@@ -63,6 +63,10 @@
         "from": "<%= base_dir %>/app/src/main/res/values/template_login_strings.xml",
         "to": "<%= directory %>/<%= app_name %>/app/src/main/res/values/strings.xml",
         "merge_type": "resources"
+      },{
+        "from": "<%= base_dir %>/app/gradle_template/template_login.gradle",
+        "to": "<%= directory %>/<%= app_name %>/app/build.gradle",
+        "merge_type": "app_dependencies"
       }
     ]
   }
