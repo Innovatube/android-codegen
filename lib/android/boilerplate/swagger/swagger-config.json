@@ -1,5 +1,5 @@
 {
   "library": "retrofit2",
   "artifactId": "swagger-petstore-retrofit2-rx",
-  "useRxJava": true
+  "useRxJava2": true
 }

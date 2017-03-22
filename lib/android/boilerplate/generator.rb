@@ -1,13 +1,14 @@
 require 'erubis'
 require_relative 'resources_merger'
 require_relative 'dependencies_merger'
+require_relative 'manifest_merger'
 
 ##
 #Class' description
 #
 #@author::          Ethan Le
 #@usage::           Provide Generate operations which contain copy file, generate template
-#@revision::        21/3/2017
+#@revision::        22/3/2017
 #@todo::
 #@fixme::
 ##
@@ -109,6 +110,8 @@ module AndroidBoilerplate
             merger = AndroidBoilerplate::ResourcesMerger.new(new_options)
           when 'app_dependencies'
             merger = AndroidBoilerplate::DependenciesMerger.new(new_options)
+          when 'manifest'
+            merger = AndroidBoilerplate::ManifestMerger.new(new_options)
         end
         merge_result = merger.run
         File.open(target, 'w') { |file| file.puts merge_result[:output_file] }

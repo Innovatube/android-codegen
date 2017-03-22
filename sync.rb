@@ -8,6 +8,8 @@ def sync_template
       content = File.read(template)
       # rename package name
       content.gsub!(/com.innovatube.carbid/, '<%= package_name %>')
+      content.gsub!(/\.template\./, '.')
+      content.gsub!(/\.template_/, '.')
       # move erb syntax out of xml comment
       content.gsub!(/<!--(<%.*%>)-->/, '\1')
       # move erb syntax out of java comment

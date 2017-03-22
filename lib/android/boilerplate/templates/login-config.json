@@ -36,6 +36,12 @@
         "exclude": [
           "Presenter.java"
         ]
+      }
+    ],
+    "copy_template_file": [
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_login.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/activity_login.xml"
       },
       {
         "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/login/FacebookLoginPresenter.java",
@@ -52,22 +58,29 @@
         ]
       }
     ],
-    "copy_template_file": [
-      {
-        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_login.xml",
-        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/activity_login.xml"
-      }
-    ],
     "merge_template_file": [
       {
         "from": "<%= base_dir %>/app/src/main/res/values/template_login_strings.xml",
         "to": "<%= directory %>/<%= app_name %>/app/src/main/res/values/strings.xml",
         "merge_type": "resources"
-      },{
+      },
+      {
         "from": "<%= base_dir %>/app/gradle_template/template_login.gradle",
         "to": "<%= directory %>/<%= app_name %>/app/build.gradle",
         "merge_type": "app_dependencies"
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/manifest_template/template_login.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/AndroidManifest.xml",
+        "merge_type": "manifest"
       }
     ]
-  }
+  },
+  "extra_tasks": [
+    {
+      "name": "generate_facebook_hash",
+      "require_true": ["enable_facebook_login"],
+      "require_false": ["facebook_app_id"]
+    }
+  ]
 }

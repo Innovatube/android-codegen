@@ -9,7 +9,7 @@ require_relative 'utilities'
 #
 #@author::          Ethan Le
 #@usage::           CLI endpoint
-#@revision::        21/3/2017
+#@revision::        22/3/2017
 #@todo::
 #@fixme::
 ##
@@ -63,10 +63,9 @@ module AndroidBoilerplate
         task_list.each do |task_name|
           next if param_json['tasks'][task_name].nil?
           param_json['tasks'][task_name].each do |task|
-            next if !task['require_true'].nil? && !new_options[task['require_true']]
-            next if !task['require_false'].nil? && new_options[task['require_false']]
+            next unless AndroidBoilerplate::Utilities.task_satisfy?(task, new_options)
             if task_name == 'merge_template_file'
-              generator.merge_template_file( task['from'], task['to'], task['merge_type'])
+              generator.merge_template_file(task['from'], task['to'], task['merge_type'])
             else
               generator.send(task_name, task['from'], task['to'], task['exclude']) unless param_json['tasks'][task_name].nil?
             end
@@ -74,7 +73,7 @@ module AndroidBoilerplate
         end
         unless param_json['extra_tasks'].nil?
           param_json['extra_tasks'].each do |task|
-            next if !AndroidBoilerplate::Utilities.task_satisfy?(task, new_options)
+            next unless AndroidBoilerplate::Utilities.task_satisfy?(task, new_options)
             case task['name']
               when 'swagger_codegen'
                 swagger_codegen(new_options)
@@ -96,12 +95,14 @@ module AndroidBoilerplate
       say('What is the directory of keystore (leave it empty to use default keystore)?')
       keystore_directory = ask('The directory of keystore: ')
       if keystore_directory == ''
+        say('Use the following hash key to create new android client:')
         exec('keytool -exportcert -alias androiddebugkey -storepass android -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64')
       else
         say('What is your profile alias?')
         keystore_alias = ask('Alias: ')
         say('What is the keystore password?')
         keystore_password = ask('Password: ')
+        say('Use the following hash key to create new android client:')
         exec "keytool -exportcert -alias #{keystore_alias} -storepass #{keystore_password} -keystore #{Dir.pwd}/#{keystore_directory} | openssl sha1 -binary | openssl base64"
       end
     end
@@ -119,13 +120,25 @@ module AndroidBoilerplate
       old_options['generate_rx_java2'] = (ask('Do you want to generate RxJava2 alongside with model?', :limited_to => %w(yes no)) == 'yes')
       model_package = "#{old_options['package_name']}.data.models"
       api_package = "#{old_options['package_name']}.api"
-      swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore-retrofit2rx2') if old_options['generate_rx_java2']
+      swagger_ignore = nil
+      swagger_gradle = nil
+      if old_options['generate_rx_java2']
+        swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore-retrofit2rx2')
+        swagger_gradle = File.join(File.dirname(__FILE__), 'templates', 'mvp-boilerplate/app/gradle_template/template_swagger_rxjava2.gradle')
+      else
+        swagger_gradle = File.join(File.dirname(__FILE__), 'templates', 'mvp-boilerplate/app/gradle_template/template_swagger_model.gradle')
+        swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore-model')
+      end
       swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore-model') unless old_options['generate_rx_java2']
       swagger_config = File.join(File.dirname(__FILE__), 'swagger', 'swagger-config.json')
+
+
       directory = "#{old_options['directory']}"
       directory = "#{directory}/#{old_options['app_name']}" unless old_options['app_name'].nil?
       directory = "#{directory}/app"
       target_swagger_ignore = File.join(directory, '.swagger-codegen-ignore')
+      generate = AndroidBoilerplate::Generator.new old_options
+      generate.merge_template_file(swagger_gradle, File.join(directory, 'build.gradle'), 'app_dependencies')
       FileUtils.mkpath (File.dirname(target_swagger_ignore)) unless File.exist?(File.dirname(target_swagger_ignore))
       FileUtils.cp(swagger_ignore, target_swagger_ignore)
       system("swagger-codegen generate -i #{yaml_file} -l java --model-package #{model_package} --api-package #{api_package} -o #{directory} -c #{swagger_config}")
