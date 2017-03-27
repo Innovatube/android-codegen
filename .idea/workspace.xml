@@ -2,85 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af6e2d69-b24e-4f9c-bd0a-f6d0d830cc37" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/proguard-rules.pro" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/androidTest/java/com/innovatube/carbid/ExampleInstrumentedTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/debug/res/values/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/MyApplication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/consts/Consts.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/data/DataManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/data/local/PreferenceHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/data/local/RealmHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/data/models/ApiError.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/data/remote/RetrofitService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/injection/ActivityContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/injection/ApplicationContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/injection/PerActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/injection/component/ActivityComponent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/injection/component/ApplicationComponent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/injection/module/ActivityModule.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/injection/module/ApplicationModule.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/base/BaseActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/base/BaseDialogActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/base/BaseDialogFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/base/BaseFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/base/BaseMvpView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/base/BasePresenter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/base/MvpView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/base/Presenter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/fcm/FirebaseMessagingService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/bottom/BaseBottomNavigationActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/drawer/BaseNavigationDrawerActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/FacebookLoginPresenter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/GoogleSignInPresenter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/LoginActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/LoginMvpView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/LoginPresenter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/normal/HomeActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/normal/HomeFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/tabbed/BaseTabbedActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/utils/AppUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/drawable/side_nav_bar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_activity_base_bottom_navigation.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_activity_base_navigation_drawer.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_activity_base_tabbed.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_activity_login.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_activity_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_app_bar_base_navigation_drawer.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_content_base_navigation_drawer.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_fragment_base_tabbed.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_home_fragment.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_nav_header_base_navigation_drawer.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/menu/template_activity_base_navigation_drawer_drawer.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/menu/template_base_navigation_drawer.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/menu/template_menu_base_tabbed.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/menu/template_navigation_bottom_items.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values-v21/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values-w820dp/dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/colors.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/template_drawer_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/template_login_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/release/res/values/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/test/java/com/innovatube/carbid/ExampleUnitTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/gradle.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/gradle/wrapper/gradle-wrapper.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/gradle/wrapper/gradle-wrapper.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/gradlew" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/gradlew.bat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/settings.gradle" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/android-boilerplate.iml" afterPath="$PROJECT_DIR$/.idea/android-boilerplate.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/android/boilerplate/cli.rb" afterPath="$PROJECT_DIR$/lib/android/boilerplate/cli.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/android/boilerplate/generator.rb" afterPath="$PROJECT_DIR$/lib/android/boilerplate/generator.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/android/boilerplate/utilities.rb" afterPath="$PROJECT_DIR$/lib/android/boilerplate/utilities.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sync.rb" afterPath="$PROJECT_DIR$/sync.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -90,8 +18,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/android-boilerplate@generator.coverage" NAME="generator Coverage Results" MODIFIED="1488868649997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lib/android/boilerplate" MODULE_NAME="android-boilerplate" />
     <SUITE FILE_PATH="coverage/android-boilerplate@Rspec.coverage" NAME="Rspec Coverage Results" MODIFIED="1490072524158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="android-boilerplate" />
+    <SUITE FILE_PATH="coverage/android-boilerplate@generator.coverage" NAME="generator Coverage Results" MODIFIED="1488868649997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lib/android/boilerplate" MODULE_NAME="android-boilerplate" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -99,21 +27,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login-config.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/login-config.json">
+      <file leaf-file-name="template_fragment_list_template_model.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_fragment_list_template_model.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="1" column="64" lean-forward="false" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -123,10 +41,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>androidTest</find>
-      <find>test</find>
-      <find>res</find>
-      <find>activity_home</find>
       <find>app/src</find>
       <find>app/src/res</find>
       <find>main/src/res</find>
@@ -153,6 +67,10 @@
       <find>merge</find>
       <find>merger</find>
       <find>**</find>
+      <find>mModelPresenter</find>
+      <find>match</find>
+      <find>scan</find>
+      <find>.list</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;%=  package_name %&gt;</replace>
@@ -171,20 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/project_dependencies_merger.rb" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/build.gradle" />
-        <option value="$PROJECT_DIR$/spec/android/output/dependencies.gradle" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/dependencies.gradle" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/login-activity/template/build.gradle" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/login-activity/template/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/login-activity/template/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/utilities.rb" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/.gitignore" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/build.gradle" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/google-services.json" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/src/androidTest/java/com/innovatube/carbid/ExampleInstrumentedTest.java" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/src/main/java/com/innovatube/carbid/ui/login/LoginActivity.java" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/src/main/res/layout/activity_home_nd.xml" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/src/main/res/menu/activity_navigation_drawer_drawer.xml" />
@@ -198,7 +102,6 @@
         <option value="$PROJECT_DIR$/lib/android/boilerplate/plugin_merger.rb" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/dependencies_merger.rb" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/manifest_merger.rb" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/swagger/.swagger-codegen-ignore-retrofit2rx2" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/swagger/swagger-config.json" />
         <option value="$PROJECT_DIR$/temp/app/.swagger-codegen-ignore" />
@@ -214,14 +117,29 @@
         <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate-config.json" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/resources_merger.rb" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/utilities.rb" />
         <option value="$PROJECT_DIR$/spec/android/dependencies_project_spec.rb" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/cli.rb" />
-        <option value="$PROJECT_DIR$/lib/android/boilerplate/generator.rb" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/login-config.json" />
         <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/FacebookLoginPresenter.java" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/utilities.rb" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/generator.rb" />
         <option value="$PROJECT_DIR$/sync.rb" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_fragment_list_item.xml" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_list_model_item.xml" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListModelFragment.java" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListModelMvp.java" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListModelPresenter.java" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListModelAdapter.java" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/erb_helper.rb" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelFragment.java" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelMvp.java" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelPresenter.java" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/cli.rb" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelAdapter.java" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_list_template_model_item.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_nav_header_base_navigation_drawer.xml" />
+        <option value="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_fragment_list_template_model.xml" />
       </list>
     </option>
   </component>
@@ -237,10 +155,9 @@
     </layout>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1920" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="height" value="1016" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -261,25 +178,36 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-boilerplate" />
+              <option name="myItemId" value="android-codegen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-boilerplate" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-codegen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-codegen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-boilerplate" />
+              <option name="myItemId" value="android-codegen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-boilerplate" />
+              <option name="myItemId" value="android-codegen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -293,11 +221,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-boilerplate" />
+              <option name="myItemId" value="android-codegen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-boilerplate" />
+              <option name="myItemId" value="android-codegen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -315,7 +243,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,8 +252,17 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/quanlt/RubymineProjects/android-boilerplate/lib/android/boilerplate/generator.rb" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list" />
+      <recent name="$PROJECT_DIR$/lib/android/boilerplate" />
+      <recent name="$PROJECT_DIR$/spec/android/output" />
+      <recent name="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/src/main/res/layout" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/android/boilerplate" />
       <recent name="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template" />
@@ -334,13 +270,18 @@
       <recent name="$PROJECT_DIR$/lib/android/boilerplate/templates/login-activity/template/app/src/main" />
       <recent name="$PROJECT_DIR$/lib/android/boilerplate/templates/login-activity/template/app/src/main/java" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/spec/android/output" />
-      <recent name="$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/template/app/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/lib/android/boilerplate" />
-      <recent name="$PROJECT_DIR$/spec/android" />
-      <recent name="$PROJECT_DIR$/spec/android/input" />
-    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="RSpec.Rspec">
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
@@ -375,6 +316,13 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SETTINGS_VERSION" VALUE="2" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -487,6 +435,7 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="af6e2d69-b24e-4f9c-bd0a-f6d0d830cc37" name="Default" comment="" />
@@ -526,6 +475,7 @@
       <workItem from="1489738322939" duration="2903000" />
       <workItem from="1489976602707" duration="19677000" />
       <workItem from="1490061910724" duration="13040000" />
+      <workItem from="1490600864190" duration="8428000" />
     </task>
     <servers />
   </component>
@@ -562,22 +512,21 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186794000" />
+    <option name="totallyTimeSpent" value="195222000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="23" width="1920" height="1057" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1920" height="1016" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31197917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32083333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45177665" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34322035" sideWeight="0.50364584" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33096448" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328934" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34322035" sideWeight="0.49635416" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45177665" sideWeight="0.496875" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -623,201 +572,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/swagger/.swagger-codegen-ignore-model">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/swagger/.swagger-codegen-ignore-retrofit2rx2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/swagger/swagger-config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/proguard-rules.pro">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/MyApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CODE_OF_CONDUCT.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.rspec_status">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android-boilerplate.gemspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/console">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/setup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/.idea/vcs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/android/input/resources.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/android/output/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/android/output/resources_result.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/android/output/resources.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/mergeable.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="55" column="43" lean-forward="false" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="61" lean-forward="false" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/android/dependencies_merger_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/project_dependencies_merger.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/android/dependencies_project_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="54" lean-forward="false" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/android/resources_merger_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/dependencies_merger.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/resources_merger.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/utilities.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -829,171 +587,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/cli.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="63" column="53" lean-forward="false" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/utils/AppUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/fcm/FirebaseMessagingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/drawer/BaseNavigationDrawerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/manifest_template/template_login.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/release/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/template_drawer_strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/template_login_strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/FacebookLoginPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/gradle_template/template_login.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/generator.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="133" column="60" lean-forward="false" selection-start-line="133" selection-start-column="6" selection-end-line="133" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/dependencies.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/utils/AppUtils.java" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/fcm/FirebaseMessagingService.java" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/drawer/BaseNavigationDrawerActivity.java" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/manifest_template/template_login.xml" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/AndroidManifest.xml" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/release/res/values/values.xml" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/strings.xml" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/template_drawer_strings.xml" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/values/template_login_strings.xml" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/FacebookLoginPresenter.java" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/login/LoginActivity.java" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/settings.gradle" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/gradle_template/template_login.gradle" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/dependencies.gradle" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/build.gradle" />
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/build.gradle" />
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sync.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="98" lean-forward="false" selection-start-line="15" selection-start-column="98" selection-end-line="15" selection-end-column="98" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1005,18 +619,260 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/login-config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="39">
           <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/temp/model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="-79">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/utilities.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="63" column="42" lean-forward="false" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_activity_login.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="31" column="48" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/manifest_merger.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/mergeable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="93" column="21" lean-forward="false" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/dependencies_merger.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp/Gladd/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListModelFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListModelMvp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListModelPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListModelAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelMvp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/cli.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="174" column="62" lean-forward="true" selection-start-line="174" selection-start-column="62" selection-end-line="174" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_fragment_list_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_list_model_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sync.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="3" lean-forward="true" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="105">
+            <caret line="7" column="91" lean-forward="false" selection-start-line="7" selection-start-column="91" selection-end-line="7" selection-end-column="91" />
+            <folding>
+              <marker date="1490611608000" expanded="true" signature="1129:2860" ph="{...}" />
+              <marker date="1490611608000" expanded="true" signature="1143:1381" ph="{...}" />
+              <marker date="1490611608000" expanded="true" signature="1163:1373" ph="{...}" />
+              <marker date="1490611608000" expanded="true" signature="1394:2496" ph="{...}" />
+              <marker date="1490611608000" expanded="true" signature="1401:1704" ph="//..." />
+              <marker date="1490611608000" expanded="true" signature="1731:2177" ph="[...]" />
+              <marker date="1490611608000" expanded="true" signature="1739:2174" ph="{&quot;from&quot;: &quot;INPUT FILE LOCATION&quot;...}" />
+              <marker date="1490611608000" expanded="true" signature="1842:1938" ph="[...]" />
+              <marker date="1490611608000" expanded="true" signature="1965:2060" ph="[...]" />
+              <marker date="1490611608000" expanded="true" signature="2081:2173" ph="[...]" />
+              <marker date="1490611608000" expanded="true" signature="2301:2492" ph="[...]" />
+              <marker date="1490611608000" expanded="true" signature="2309:2486" ph="{&quot;from&quot;: &quot;INPUT FILE LOCATION&quot;...}" />
+              <marker date="1490611608000" expanded="true" signature="2515:2858" ph="[...]" />
+              <marker date="1490611608000" expanded="true" signature="2558:2854" ph="{&quot;name&quot;: &quot;generate_facebook_hash&quot;...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/generator.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="74" column="21" lean-forward="false" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/erb_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_nav_header_base_navigation_drawer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_fragment_base_tabbed.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_home_fragment.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_list_template_model_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="1" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/android/boilerplate/templates/mvp-boilerplate/app/src/main/res/layout/template_fragment_list_template_model.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="64" lean-forward="false" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
           <folding />
         </state>
       </provider>

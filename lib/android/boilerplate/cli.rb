@@ -3,7 +3,7 @@ require 'android/boilerplate'
 require 'android/boilerplate/generator'
 require 'json'
 require_relative 'utilities'
-
+require_relative './erb_helper'
 ##
 #Class' description
 #
@@ -142,6 +142,44 @@ module AndroidBoilerplate
       FileUtils.mkpath (File.dirname(target_swagger_ignore)) unless File.exist?(File.dirname(target_swagger_ignore))
       FileUtils.cp(swagger_ignore, target_swagger_ignore)
       system("swagger-codegen generate -i #{yaml_file} -l java --model-package #{model_package} --api-package #{api_package} -o #{directory} -c #{swagger_config}")
+    end
+
+    desc 'generate-list', 'generate list from selected model'
+    def generate_list(old_option = nil)
+      if old_option.nil?
+        old_option = Hash.new
+        old_option['directory'] = ask('What is the directory of your project?', :path => true)
+        old_option['package_name'] = ask('What is your package name');
+        old_option['app_name'] = ask('What is your app name?');
+      end
+      model_list = Array.new
+      model_dir = File.join(old_option['directory'], old_option['app_name'], 'app/src/main/java', old_option['package_name'].gsub('.', '/'), 'data/models/')
+      Dir["#{model_dir}*.java"].each { |f| model_list.push(f.gsub(model_dir, '')) }
+      command_option = Hash.new
+      command_option[:limited_to] = model_list
+      old_option['model'] = ask('model', command_option)
+      attributes = AndroidBoilerplate::Utilities.variables_of_model(File.join(model_dir, old_option['model']))
+      old_option['attributes'] = {}
+      attributes.each do |attribute|
+        if(ask("Do you want to include #{attribute} in your view?", :limited_to=>%w(yes no)) == 'yes')
+          old_option['attributes'][attribute] =
+              ask("What kind of view do you want to generate for #{attribute}", :limited_to => %w(TextView Button ImageView EditText SwitchCompat))
+        end
+      end
+      old_option['sub_package_name'] = ask('What is your sub package name?')
+      old_option['sub_package_name'] = old_option['sub_package_name']==''?'list':old_option['sub_package_name']
+      old_option['model'] = old_option['model'].gsub('.java','')
+      template_src_dir = File.join(File.dirname(__FILE__), 'templates', 'mvp-boilerplate/app/src/main/java/com/innovatube/carbid/ui/template/list');
+      template_res_dir = File.join(File.dirname(__FILE__), 'templates', 'mvp-boilerplate/app/src/main/res/layout');
+      target_src_dir = File.join(old_option['directory'], old_option['app_name'], 'app/src/main/java', old_option['package_name'].gsub('.', '/'),"ui/#{old_option['sub_package_name']}")
+      target_res_dir = File.join(old_option['directory'], old_option['app_name'], 'app/src/main/res/layout')
+      generator = AndroidBoilerplate::Generator.new(old_option)
+      generator.copy_template_file(File.join(template_src_dir, 'ListTemplateModelAdapter.java'), File.join(target_src_dir,"List#{old_option['model'].capitalize}Adapter.java" ))
+      generator.copy_template_file(File.join(template_src_dir, 'ListTemplateModelFragment.java'), File.join(target_src_dir,"List#{old_option['model'].capitalize}Fragment.java" ))
+      generator.copy_template_file(File.join(template_src_dir, 'ListTemplateModelMvp.java'), File.join(target_src_dir,"List#{old_option['model'].capitalize}Mvp.java" ))
+      generator.copy_template_file(File.join(template_src_dir, 'ListTemplateModelPresenter.java'), File.join(target_src_dir,"List#{old_option['model'].capitalize}Presenter.java" ))
+      generator.copy_template_file(File.join(template_res_dir, 'template_list_template_model_item.xml'), File.join(target_res_dir,"list_#{to_snake_case(old_option['model'])}_item.xml" ))
+      generator.copy_template_file(File.join(template_res_dir, 'template_fragment_list_template_model.xml'), File.join(target_res_dir,"fragment_list_#{to_snake_case(old_option['model'])}.xml" ))
     end
   end
 end

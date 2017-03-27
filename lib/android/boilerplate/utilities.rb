@@ -60,5 +60,14 @@ module AndroidBoilerplate
         item.gsub(/(\)|\(|\[|\])/,'/1')
       end
     end
+
+    def self.variables_of_model(model_file)
+      model = File.read(model_file)
+      model_list = Array.new
+      model.scan(/^\s*?private\s[a-zA-Z]*?\s([a-zA-Z]*?)(?=;|\s=)/) do |var|
+        model_list.push(var[0]) unless var[0].nil?
+      end
+      return model_list
+    end
   end
 end

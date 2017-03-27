@@ -5,6 +5,7 @@ require_relative 'manifest_merger'
 
 ##
 #Class' description
+#Class' description
 #
 #@author::          Ethan Le
 #@usage::           Provide Generate operations which contain copy file, generate template

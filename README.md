@@ -5,7 +5,7 @@ Android boilerplate generator with command line
 ## Development
 
 After checking out the repo, run `bin/setup` or `bundle install` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.  
-Run `rake template:sync` to clone template from github, authentication may be required.  
+~~Run `rake template:sync` to clone template from github, authentication may be required.~~  
 To install this gem onto your local machine, run `rake install`. To release a new version, update the version number in `version.rb`, and then run `rake install`.
 
 ## Usage
