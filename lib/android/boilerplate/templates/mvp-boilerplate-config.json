@@ -15,9 +15,22 @@
     "min_sdk": {
       "message": "What is the minimum sdk you want to support?"
     },
-    "swagger_codegen": {
-      "message": "Do you want to generate source code from swagger?",
+    "generate_home": {
+      "message": "Do you want to generate home activity",
       "type": "boolean"
+    },
+    "home_template": {
+      "message": "What kind of template do you want to use?",
+      "limited_to": "bottom_navigation, navigation_drawer, tabbed_activity",
+      "require_true": "generate_home"
+    },
+    "sub_package_name": {
+      "message": "What is the sub package name for home?",
+      "require_true": "generate_home"
+    },
+    "activity_name": {
+      "message": "What is the activity name for home (without Activity)?",
+      "require_true": "generate_home"
     }
   },
   "tasks": {
@@ -26,36 +39,157 @@
         "from": "<%= base_dir %>",
         "to": "<%= directory %>/<%= app_name %>",
         "exclude": [
-          "/template_","/java/"
+          "/template_",
+          "/java/"
         ]
       },
       {
         "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid",
         "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>",
         "exclude": [
-          "/template/","/template_"
+          "/template/",
+          "/template_"
         ]
       },
       {
         "from": "<%= base_dir %>/app/src/test/java/com/innovatube/carbid",
         "to": "<%= directory %>/<%= app_name %>/app/src/test/java/<%= package_name.gsub('.','/') %>",
         "exclude": [
-          "/template/","/template_"
+          "/template/",
+          "/template_"
         ]
       },
       {
         "from": "<%= base_dir %>/app/src/androidTest/java/com/innovatube/carbid",
         "to": "<%= directory %>/<%= app_name %>/app/src/androidTest/java/<%= package_name.gsub('.','/') %>",
         "exclude": [
-          "/template/","/template_"
+          "/template/",
+          "/template_"
+        ]
+      }
+    ],
+    "copy_template_file": [
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/bottom/BaseBottomNavigationActivity.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/<%= activity_name.capitalize %>Activity.java",
+        "require_true": [
+          "bottom_navigation"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_base_bottom_navigation.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/activity_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "bottom_navigation"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/menu/template_navigation_bottom_items.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/menu/<%= to_snake_case(activity_name) %>_items.xml",
+        "require_true": [
+          "bottom_navigation"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/drawer/BaseNavigationDrawerActivity.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/<%= activity_name.capitalize %>Activity.java",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_base_navigation_drawer.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/activity_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_nav_header_base_navigation_drawer.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/nav_header_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_app_bar_base_navigation_drawer.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/app_bar_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_content_base_navigation_drawer.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/content_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/menu/template_activity_base_navigation_drawer.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/menu/<%= to_snake_case(activity_name) %>_navigation_drawer.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/menu/template_menu_base_navigation_drawer.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/menu/menu_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/tabbed/BaseTabbedActivity.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name || '' %>/<%= activity_name.capitalize %>Activity.java",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_base_tabbed.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/activity_<%= to_snake_case(activity_name)%>.xml",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_fragment_base_tabbed.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/fragment_<%= to_snake_case(activity_name)%>.xml",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/menu/template_menu_base_tabbed.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/menu/menu_<%= to_snake_case(activity_name)%>.xml",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      }
+    ],
+    "merge_template_file": [
+      {
+        "from": "<%= base_dir %>/app/src/main/manifest_template/template_home.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/AndroidManifest.xml",
+        "merge_type": "manifest",
+        "require_true": [
+          "generate_home"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/values/template_drawer_strings.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/values/strings.xml",
+        "merge_type": "resources",
+        "require_true": [
+          "navigation_drawer"
         ]
       }
     ]
   },
   "extra_tasks": [
     {
-      "name": "swagger_codegen",
-      "require_true": ["swagger_codegen"]
+      "name": "swagger_codegen"
     }
   ]
 }

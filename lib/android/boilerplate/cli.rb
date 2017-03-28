@@ -38,6 +38,12 @@ module AndroidBoilerplate
           say param_json['params'][param]['message']
           if param_json['params'][param]['type'] == 'model'
             select_model(new_options)
+          elsif !param_json['params'][param]['limited_to'].nil?
+            command_option = Hash.new
+            command_option[:limited_to] = param_json['params'][param]['limited_to'].split(',').map(&:strip)
+            home_template = ask(param, command_option)
+            puts home_template
+            new_options[home_template] = true
           else
             command_option = Hash.new
             command_option[:limited_to] = %w(yes no) if param_json['params'][param]['type'] == 'boolean'
@@ -114,7 +120,8 @@ module AndroidBoilerplate
         old_options['directory'] = ask('Which directory you want to store your models?')
         old_options['package_name'] = ask('Package name: ')
       end
-      yaml_file = ask('Enter path name for swagger file (url or local path): ')
+      yaml_file = ask('Enter path name for swagger file (url or local path, leave it empty to exit): ')
+      return if yaml_file == ''
       old_options['generate_rx_java2'] = (ask('Do you want to generate RxJava2 alongside with model?', :limited_to => %w(yes no)) == 'yes')
       model_package = "#{old_options['package_name']}.data.models"
       api_package = "#{old_options['package_name']}.api"
@@ -167,7 +174,7 @@ module AndroidBoilerplate
         if File.exist?('app') && File.directory?('app')
           current_dir = File.dirname(__FILE__)
           parent_dir = File.expand_path('..', current_dir)
-          manifest = File.join(current_dir,'app/src/main/AndroidManifest.xml')
+          manifest = File.join(current_dir, 'app/src/main/AndroidManifest.xml')
           unless manifest.match(/(?<=package=").*?(?=")/).nil?
             package_name = manifest.match(/(?<=package=").*?(?=")/)[0]
           end
@@ -177,7 +184,7 @@ module AndroidBoilerplate
 
       def in_white_list_config?(config)
         white_list = %w(package_name directory app_name)
-        white_list.include?config
+        white_list.include? config
       end
     end
 

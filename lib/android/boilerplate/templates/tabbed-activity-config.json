@@ -10,7 +10,7 @@
       "message": "What are you calling your app?"
     },
     "activity_name": {
-      "message": "What is your activity name?"
+      "message": "What is your activity name (without Activity)?"
     },
     "sub_package_name": {
       "message": "Enter your sub package name:"

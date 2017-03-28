@@ -34,4 +34,12 @@ class CustomErubis < Erubis::Eruby
         tr('-', '_').
         downcase
   end
+
+  def sub_package_name
+    ''
+  end
+
+  def activity_name
+    ''
+  end
 end
