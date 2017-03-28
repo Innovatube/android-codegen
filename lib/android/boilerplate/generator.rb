@@ -2,6 +2,7 @@ require 'erubis'
 require_relative 'resources_merger'
 require_relative 'dependencies_merger'
 require_relative 'manifest_merger'
+require_relative 'custom_erubis'
 
 ##
 #Class' description
@@ -9,7 +10,7 @@ require_relative 'manifest_merger'
 #
 #@author::          Ethan Le
 #@usage::           Provide Generate operations which contain copy file, generate template
-#@revision::        22/3/2017
+#@revision::        28/3/2017
 #@todo::
 #@fixme::
 ##
@@ -130,7 +131,7 @@ module AndroidBoilerplate
     # item           :   input file location
     def render_template(input)
       template = File.read(File.join(input))
-      erubis = Erubis::Eruby.new(template)
+      erubis = CustomErubis.new(template)
       erubis.result(self.options)
     end
 

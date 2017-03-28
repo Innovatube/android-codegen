@@ -1,0 +1,46 @@
+{
+  "params": {
+    "directory": {
+      "message": "What is the directory?"
+    },
+    "package_name": {
+      "message": "What is your package name?"
+    },
+    "app_name": {
+      "message": "What are you calling your app?"
+    },
+    "model": {
+      "message": "Select your model:",
+      "type": "model"
+    },
+    "sub_package_name": {
+      "message": "Enter your sub package name:"
+    }
+  },
+  "tasks": {
+    "copy_template_file": [
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_list_template_model_item.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/list_<%= to_snake_case(model) %>_item.xml"
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_fragment_list_template_model.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/fragment_list_<%= to_snake_case(model) %>.xml"
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelAdapter.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/List<%= model.capitalize %>Adapter.java"
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelFragment.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/List<%= model.capitalize %>Fragment.java"
+      },{
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelMvp.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/List<%= model.capitalize %>Mvp.java"
+      },{
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/list/ListTemplateModelPresenter.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/List<%= model.capitalize %>Presenter.java"
+      }
+    ]
+  }
+}
