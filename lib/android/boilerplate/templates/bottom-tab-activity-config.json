@@ -1,0 +1,40 @@
+{
+  "params": {
+    "directory": {
+      "message": "What is the directory?"
+    },
+    "package_name": {
+      "message": "What is your package name?"
+    },
+    "app_name": {
+      "message": "What are you calling your app?"
+    },
+    "activity_name": {
+      "message": "What is your activity name?"
+    },
+    "sub_package_name": {
+      "message": "Enter your sub package name:"
+    }
+  },
+  "tasks": {
+    "copy_template_file": [
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/bottom/BaseBottomNavigationActivity.java",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/<%= activity_name.capitalize %>Activity.java"
+      }, {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_base_bottom_navigation.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/activity_<%= to_snake_case(activity_name) %>.xml"
+      }, {
+        "from": "<%= base_dir %>/app/src/main/res/menu/template_navigation_bottom_items.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/menu/<%= to_snake_case(activity_name) %>_items.xml"
+      }
+    ],
+    "merge_template_file":[
+      {
+        "from": "<%= base_dir %>/app/src/main/manifest_template/template_bottom_navigation.xml",
+        "to": "<%= directory %>/<%= app_name %>/app/src/main/AndroidManifest.xml",
+        "merge_type": "manifest"
+      }
+    ]
+  }
+}

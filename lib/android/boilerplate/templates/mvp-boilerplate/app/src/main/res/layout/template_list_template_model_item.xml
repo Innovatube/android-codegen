@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+        <% attributes.each do |key,attribute| %>
+        <% if attribute == 'TextView' -%>
+        <TextView
+                android:id="@+id/text_<%= to_snake_case(key) %>"
+                tools:text="<%= key %>"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <% end %>
+        <% if attribute == 'ImageView' %>
+        <ImageView
+                android:id="@+id/image_<%= to_snake_case(key) %>"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:src="@mipmap/ic_launcher" />
+        <% end %>
+        <% if attribute == 'SwitchCompat' %>
+        <android.support.v7.widget.SwitchCompat
+                android:id="@+id/switch_<%= to_snake_case(key) %>"
+                tools:text="<%= key %>"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <% end %>
+        <% if attribute == 'EditText' %>
+        <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/edit_<%= to_snake_case(key) %>"
+                tools:hint="<%= key %>"
+                tools:text="<%= key %>"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        <% end %>
+        <% end %>
+</LinearLayout>
