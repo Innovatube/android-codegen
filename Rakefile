@@ -13,7 +13,7 @@ namespace :template do
 end
 
 PACKAGE_NAME = 'android-codegen'
-VERSION = '0.1.4'
+VERSION = '0.2.0'
 TRAVELING_RUBY_VERSION = '20150715-2.2.2'
 
 desc 'Package android codegen'
