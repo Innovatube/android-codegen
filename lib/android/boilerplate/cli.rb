@@ -1,6 +1,5 @@
 require 'thor'
-require 'android/boilerplate'
-require 'android/boilerplate/generator'
+require_relative 'generator'
 require 'json'
 require_relative 'utilities'
 require_relative 'custom_erubis'
