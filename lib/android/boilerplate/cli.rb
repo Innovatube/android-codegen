@@ -113,11 +113,25 @@ module AndroidBoilerplate
     desc 'swagger-codegen', 'Generate model or rxJava from Swagger YAML'
 
     def swagger_codegen(old_options = nil)
-      system('brew install swagger-codegen') unless AndroidBoilerplate::Utilities.command_available?('swagger-codegen')
+      unless AndroidBoilerplate::Utilities.command_available?('java')
+        puts 'Java 7 or higher is required to run swagger-codegen'
+        return
+      end
+      required_params = %w(directory package_name app_name)
       if old_options.nil?
         old_options = Hash.new
-        old_options['directory'] = ask('Which directory you want to store your models?')
-        old_options['package_name'] = ask('Package name: ')
+      end
+      required_params.each do  |param|
+        if old_options[param].nil?
+          case param
+            when 'directory'
+              old_options['directory'] = ask('Where is the directory containing your project?')
+            when 'package_name'
+              old_options['package_name'] = ask('What is the package name: ')
+            when 'app_name'
+              old_options['directory'] = ask('What is your app"s name ?')
+          end
+        end
       end
       yaml_file = ask('Enter path name for swagger file (url or local path, leave it empty to exit): ')
       return if yaml_file == ''
@@ -145,7 +159,8 @@ module AndroidBoilerplate
       generate.merge_template_file(swagger_gradle, File.join(directory, 'build.gradle'), 'app_dependencies')
       FileUtils.mkpath (File.dirname(target_swagger_ignore)) unless File.exist?(File.dirname(target_swagger_ignore))
       FileUtils.cp(swagger_ignore, target_swagger_ignore)
-      system("swagger-codegen generate -i #{yaml_file} -l java --model-package #{model_package} --api-package #{api_package} -o #{directory} -c #{swagger_config}")
+      swagger_codegen_path = File.join(File.dirname(__FILE__), 'swagger-codegen-cli-2.2.2.jar')
+      system("java -jar #{swagger_codegen_path} generate -i #{yaml_file} -l java --model-package #{model_package} --api-package #{api_package} -o #{directory} -c #{swagger_config}")
     end
 
     no_tasks do
