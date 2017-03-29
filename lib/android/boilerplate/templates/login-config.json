@@ -9,12 +9,6 @@
     "app_name": {
       "message": "What are you calling your app?"
     },
-    "target_sdk": {
-      "message": "What is the target sdk?"
-    },
-    "min_sdk": {
-      "message": "What is the minimum sdk you want to support?"
-    },
     "enable_facebook_login": {
       "message": "Do you want to enable Facebook Login?",
       "type": "boolean"
