@@ -59,6 +59,13 @@ module AndroidBoilerplate
 
         }
         new_options['base_dir'] = File.join(File.dirname(__FILE__), 'templates', 'mvp-boilerplate')
+        new_options['directory']
+        new_options['app_name']
+        if new_options['directory'] == ''
+          new_options['target_dir'] = new_options['app_name']
+        else
+          new_options['target_dir'] = "#{new_options['directory']}/#{new_options['app_name']}"
+        end
         erubis = CustomErubis.new(config_file)
         param_json = JSON.parse(erubis.result(new_options))
         generator = AndroidBoilerplate::Generator.new(new_options)
@@ -81,9 +88,9 @@ module AndroidBoilerplate
               when 'swagger_codegen'
                 swagger_codegen(new_options)
               when 'generate_facebook_hash'
-                generate_key_hash(new_options)
+                generate_facebook_hash(new_options)
               when 'generate_google_config'
-                generate_sha1 new_options
+                generate_google_config new_options
             end
           end
         end
@@ -92,10 +99,10 @@ module AndroidBoilerplate
 
     end
 
-    desc 'generate_sha1', 'Generate Google play config'
+    desc 'generate-google-config', 'Generate Google play config'
     option :home_directory, :type => :boolean
 
-    def generate_sha1(old_options = nil)
+    def generate_google_config(old_options = nil)
       say 'Generate config file for google sign in'
       say("the current directory is #{Dir.pwd}") if not options[:home_directory]
       say('What is the directory of keystore (leave it empty to use default keystore)?')
@@ -122,10 +129,10 @@ module AndroidBoilerplate
       open_browser url
     end
 
-    desc 'generate-key-hash', 'Generate key hash'
+    desc 'generate-facebook-hash', 'Generate key hash'
     option :home_directory, :type => :boolean
 
-    def generate_key_hash(old_options = nil)
+    def generate_facebook_hash(old_options = nil)
       say 'Generate info for facebook'
       say("the current directory is #{Dir.pwd}") if not options[:home_directory]
       say('What is the directory of keystore (leave it empty to use default keystore)?')
@@ -139,7 +146,7 @@ module AndroidBoilerplate
         keystore_password = ask('Password: ')
         keystore = `keytool -exportcert -alias #{keystore_alias} -storepass #{keystore_password} -keystore #{Dir.pwd}/#{keystore_directory} | openssl sha1 -binary | openssl base64`
       end
-      url = 'https://developers.facebook.com/docs/facebook-login/android'
+      url = 'https://developers.facebook.com/apps/'
       say "Navigate to #{url} to update or create your facebook app with the following info"
       say "Package name #{old_options['package_name']}" if !old_options.nil? && !old_options['package_name'].nil?
       say "Key hash: #{keystore}"

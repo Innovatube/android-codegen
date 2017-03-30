@@ -26,7 +26,7 @@
     "copy_template_directory": [
       {
         "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/login",
-        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login",
         "exclude": [
           "Presenter.java"
         ]
@@ -35,18 +35,18 @@
     "copy_template_file": [
       {
         "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_login.xml",
-        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/layout/activity_login.xml"
+        "to": "<%= target_dir %>/app/src/main/res/layout/activity_login.xml"
       },
       {
         "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/login/FacebookLoginPresenter.java",
-        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login/FacebookLoginPresenter.java",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login/FacebookLoginPresenter.java",
         "require_true": [
           "enable_facebook_login"
         ]
       },
       {
         "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/login/GoogleSignInPresenter.java",
-        "to": "<%= directory %>/<%= app_name %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login/GoogleSignInPresenter.java",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login/GoogleSignInPresenter.java",
         "require_true": [
           "enable_google_login"
         ]
@@ -55,17 +55,17 @@
     "merge_template_file": [
       {
         "from": "<%= base_dir %>/app/src/main/res/values/template_login_strings.xml",
-        "to": "<%= directory %>/<%= app_name %>/app/src/main/res/values/strings.xml",
+        "to": "<%= target_dir %>/app/src/main/res/values/strings.xml",
         "merge_type": "resources"
       },
       {
         "from": "<%= base_dir %>/app/gradle_template/template_login.gradle",
-        "to": "<%= directory %>/<%= app_name %>/app/build.gradle",
+        "to": "<%= target_dir %>/app/build.gradle",
         "merge_type": "app_dependencies"
       },
       {
         "from": "<%= base_dir %>/app/src/main/manifest_template/template_login.xml",
-        "to": "<%= directory %>/<%= app_name %>/app/src/main/AndroidManifest.xml",
+        "to": "<%= target_dir %>/app/src/main/AndroidManifest.xml",
         "merge_type": "manifest"
       }
     ]
