@@ -81,7 +81,9 @@ module AndroidBoilerplate
               when 'swagger_codegen'
                 swagger_codegen(new_options)
               when 'generate_facebook_hash'
-                generate_key_hash
+                generate_key_hash(new_options)
+              when 'generate_google_config'
+                generate_sha1 new_options
             end
           end
         end
@@ -90,24 +92,58 @@ module AndroidBoilerplate
 
     end
 
+    desc 'generate_sha1', 'Generate Google play config'
+    option :home_directory, :type => :boolean
+
+    def generate_sha1(old_options = nil)
+      say 'Generate config file for google sign in'
+      say("the current directory is #{Dir.pwd}") if not options[:home_directory]
+      say('What is the directory of keystore (leave it empty to use default keystore)?')
+      keystore_directory = ask('The directory of keystore (leave it empty to use default keystore): ')
+      if keystore_directory == ''
+        keystore = `keytool -list -v -keystore #{default_keystore} -alias androiddebugkey -storepass android -keypass android | grep SHA1:`
+      else
+        say('What is your profile alias?')
+        keystore_alias = ask('Alias: ')
+        say('What is the keystore password?')
+        key_password = ask('Password: ')
+        say('What is the keystore password?')
+        keystore_password = ask('Password: ')
+        keystore = `keytool -list -v -keystore ~/.android/debug.keystore -alias #{keystore_alias} -storepass #{keystore_password} -keypass #{key_password}| grep SHA1:`
+      end
+      if !old_options.nil? && !old_options['app_name'].nil? && !old_options['package_name'].nil?
+        url = "https://developers.google.com/mobile/add?platform=android&cntapi=signin&cntapp=#{old_options['app_name']}&cntpkg=#{old_options['package_name']}"
+      else
+        url = 'https://developers.google.com/mobile/add?platform=android&cntapi=signin'
+      end
+
+      say "Navigate to #{url} to set up project and download config file with the following info"
+      say "Key hash: #{keystore}"
+      open_browser url
+    end
+
     desc 'generate-key-hash', 'Generate key hash'
     option :home_directory, :type => :boolean
 
-    def generate_key_hash
+    def generate_key_hash(old_options = nil)
+      say 'Generate info for facebook'
       say("the current directory is #{Dir.pwd}") if not options[:home_directory]
       say('What is the directory of keystore (leave it empty to use default keystore)?')
-      keystore_directory = ask('The directory of keystore: ')
+      keystore_directory = ask('The directory of keystore (leave it empty to use default keystore): ')
       if keystore_directory == ''
-        say('Use the following hash key to create new android client:')
-        system('keytool -exportcert -alias androiddebugkey -storepass android -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64')
+        keystore = `keytool -exportcert -alias androiddebugkey -storepass android -keystore #{default_keystore} | openssl sha1 -binary | openssl base64`
       else
         say('What is your profile alias?')
         keystore_alias = ask('Alias: ')
         say('What is the keystore password?')
         keystore_password = ask('Password: ')
-        say('Use the following hash key to create new android client:')
-        system "keytool -exportcert -alias #{keystore_alias} -storepass #{keystore_password} -keystore #{Dir.pwd}/#{keystore_directory} | openssl sha1 -binary | openssl base64"
+        keystore = `keytool -exportcert -alias #{keystore_alias} -storepass #{keystore_password} -keystore #{Dir.pwd}/#{keystore_directory} | openssl sha1 -binary | openssl base64`
       end
+      url = 'https://developers.facebook.com/docs/facebook-login/android'
+      say "Navigate to #{url} to update or create your facebook app with the following info"
+      say "Package name #{old_options['package_name']}" if !old_options.nil? && !old_options['package_name'].nil?
+      say "Key hash: #{keystore}"
+      open_browser url
     end
 
     desc 'swagger-codegen', 'Generate model or rxJava from Swagger YAML'
@@ -121,7 +157,7 @@ module AndroidBoilerplate
       if old_options.nil?
         old_options = Hash.new
       end
-      required_params.each do  |param|
+      required_params.each do |param|
         if old_options[param].nil?
           case param
             when 'directory'
@@ -199,6 +235,24 @@ module AndroidBoilerplate
       def in_white_list_config?(config)
         white_list = %w(package_name directory app_name)
         white_list.include? config
+      end
+
+      def open_browser(url)
+        if RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/
+          system "start #{url}"
+        elsif RbConfig::CONFIG['host_os'] =~ /darwin/
+          system "open #{url}"
+        elsif RbConfig::CONFIG['host_os'] =~ /linux|bsd/
+          system "xdg-open #{url}"
+        end
+      end
+
+      def default_keystore
+        if RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/
+          '%HOMEPATH%\.android\debug.keystore'
+        else
+          '~/.android/debug.keystore'
+        end
       end
     end
 

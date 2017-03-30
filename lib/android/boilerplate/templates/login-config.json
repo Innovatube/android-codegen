@@ -75,6 +75,9 @@
       "name": "generate_facebook_hash",
       "require_true": ["enable_facebook_login"],
       "require_false": ["facebook_app_id"]
+    },{
+      "name": "generate_google_config",
+      "require_true": ["enable_google_login"]
     }
   ]
 }
