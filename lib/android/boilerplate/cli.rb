@@ -172,7 +172,7 @@ module AndroidBoilerplate
             when 'package_name'
               old_options['package_name'] = ask('What is the package name: ')
             when 'app_name'
-              old_options['directory'] = ask('What is your app"s name ?')
+              old_options['app_name'] = ask('What is your app"s name ?')
           end
         end
       end
@@ -194,15 +194,18 @@ module AndroidBoilerplate
       swagger_config = File.join(File.dirname(__FILE__), 'swagger', 'swagger-config.json')
 
 
-      directory = "#{old_options['directory']}"
-      directory = "#{directory}/#{old_options['app_name']}" unless old_options['app_name'].nil?
+      if old_options['directory'] == ''
+        directory = old_options['app_name']
+      else
+        directory = "#{old_options['directory']}/#{old_options['app_name']}"
+      end
       directory = "#{directory}/app"
       target_swagger_ignore = File.join(directory, '.swagger-codegen-ignore')
       generate = AndroidBoilerplate::Generator.new old_options
       generate.merge_template_file(swagger_gradle, File.join(directory, 'build.gradle'), 'app_dependencies')
       FileUtils.mkpath (File.dirname(target_swagger_ignore)) unless File.exist?(File.dirname(target_swagger_ignore))
       FileUtils.cp(swagger_ignore, target_swagger_ignore)
-      swagger_codegen_path = File.join(File.dirname(__FILE__), 'swagger-codegen-cli-2.2.2.jar')
+      swagger_codegen_path = File.join(File.dirname(__FILE__), 'swagger-codegen-cli-2.2.3-SNAPSHOT.jar')
       system("java -jar #{swagger_codegen_path} generate -i #{yaml_file} -l java --model-package #{model_package} --api-package #{api_package} -o #{directory} -c #{swagger_config}")
     end
 
