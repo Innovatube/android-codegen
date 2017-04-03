@@ -12,6 +12,9 @@ import android.view.MenuItem;
 
 import <%= package_name %>.R;
 
+
+
+
 public class <%= activity_name.capitalize %>Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 

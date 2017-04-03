@@ -1,4 +1,5 @@
 package <%= package_name %>.ui.<%= sub_package_name %>;
+
 import <%= package_name %>.data.models.<%= model.capitalize %>;
 import <%= package_name %>.ui.base.BaseMvpView;
 
@@ -7,6 +8,7 @@ import java.util.List;
 /**
  * Created by quanlt on 3/23/17.
  */
+
 
 
 

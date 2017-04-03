@@ -1,4 +1,5 @@
 package <%= package_name %>.ui.<%= sub_package_name %>;
+
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
@@ -24,6 +25,9 @@ import io.reactivex.subjects.PublishSubject;
 
 
 
+
+
+
 public class List<%= model.capitalize %>Adapter extends RecyclerView.Adapter<List<%= model.capitalize %>Adapter.ViewHolder> {
     private List<<%= model.capitalize %>> <%= to_lower_camel_case(model) %>s;
 
@@ -36,7 +40,7 @@ public class List<%= model.capitalize %>Adapter extends RecyclerView.Adapter<Lis
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.list_<%= to_snake_case(model) %>_item, parent,false);
+        View view = inflater.inflate(R.layout.list_<%= to_snake_case(model) %>_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -44,6 +48,7 @@ public class List<%= model.capitalize %>Adapter extends RecyclerView.Adapter<Lis
     public void onBindViewHolder(ViewHolder holder, int position) {
         <%= model.capitalize %> <%= to_lower_camel_case(model) %> = <%= to_lower_camel_case(model) %>s.get(position);
     }
+
     @Override
     public int getItemCount() {
         return <%= to_lower_camel_case(model) %>s.size();

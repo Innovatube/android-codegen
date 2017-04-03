@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="<%= package_name %>.ui.tabbed.BaseTabbedActivity">
+    tools:context="<%= package_name %>.ui.<%= sub_package_name %>.<%= activity_name.capitalize %>Activity">
+
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

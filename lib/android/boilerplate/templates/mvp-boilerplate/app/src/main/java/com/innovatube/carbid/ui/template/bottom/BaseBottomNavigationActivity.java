@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import <%= package_name %>.R;
 
+
+
+
 public class <%= activity_name.capitalize %>Activity extends AppCompatActivity {
 
     @Override

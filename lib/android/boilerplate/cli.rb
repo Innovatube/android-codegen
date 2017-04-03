@@ -33,6 +33,7 @@ module AndroidBoilerplate
         param_json = JSON.parse(config_file)
         param_json['params'].keys.each { |param|
           next if !param_json['params'][param]['require_true'].nil? && !new_options[param_json['params'][param]['require_true']]
+          next if !param_json['params'][param]['require_false'].nil? && new_options[param_json['params'][param]['require_false']]
           next if !new_options[param].nil? && in_white_list_config?(param)
           say param_json['params'][param]['message']
           if param_json['params'][param]['type'] == 'model'
@@ -212,7 +213,9 @@ module AndroidBoilerplate
     no_tasks do
       def select_model(old_option = nil)
         model_list = Array.new
-        model_dir = File.join(old_option['directory'], old_option['app_name'], 'app/src/main/java', old_option['package_name'].gsub('.', '/'), 'data/models/')
+        model_dir = File.join(old_option['app_name'], 'app/src/main/java', old_option['package_name'].gsub('.', '/'), 'data/models/')
+        model_dir = File.join(old_option['directory'], model_dir) if old_option['directory'] != ''
+        puts model_dir
         Dir["#{model_dir}*.java"].each { |f| model_list.push(f.gsub(model_dir, '')) }
         command_option = Hash.new
         command_option[:limited_to] = model_list

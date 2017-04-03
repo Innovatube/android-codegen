@@ -21,6 +21,9 @@
       {
         "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/tabbed/BaseTabbedActivity.java",
         "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/<%= activity_name.capitalize %>Activity.java"
+      },{
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/tabbed/BaseTabbedFragment.java",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/<%= activity_name.capitalize %>Fragment.java"
       }, {
         "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_base_tabbed.xml",
         "to": "<%= target_dir %>/app/src/main/res/layout/activity_<%= to_snake_case(activity_name)%>.xml"

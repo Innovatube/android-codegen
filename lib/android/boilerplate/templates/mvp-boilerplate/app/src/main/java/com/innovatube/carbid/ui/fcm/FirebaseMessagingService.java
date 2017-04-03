@@ -11,7 +11,6 @@ import android.util.Log;
 
 import com.google.firebase.messaging.RemoteMessage;
 import <%= package_name %>.R;
-import <%= package_name %>.ui.login.LoginActivity;
 
 import java.util.Map;
 

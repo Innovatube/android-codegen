@@ -1,4 +1,5 @@
 package <%= package_name %>.ui.<%= sub_package_name %>;
+
 import <%= package_name %>.data.DataManager;
 import <%= package_name %>.data.models.<%= model.capitalize %>;
 import <%= package_name %>.ui.base.BasePresenter;
@@ -12,6 +13,9 @@ import retrofit2.Retrofit;
 /**
  * Created by quanlt on 3/23/17.
  */
+
+
+
 
 
 public class List<%= model.capitalize %>Presenter extends BasePresenter<List<%= model.capitalize %>Mvp> {

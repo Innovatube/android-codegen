@@ -40,6 +40,7 @@
         "to": "<%= target_dir %>",
         "exclude": [
           "/template_",
+          "/TemplateModel",
           "/java/"
         ]
       },
@@ -142,6 +143,12 @@
       {
         "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/tabbed/BaseTabbedActivity.java",
         "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name || '' %>/<%= activity_name.capitalize %>Activity.java",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      },{
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/tabbed/BaseTabbedFragment.java",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name || '' %>/<%= activity_name.capitalize %>Fragment.java",
         "require_true": [
           "tabbed_activity"
         ]

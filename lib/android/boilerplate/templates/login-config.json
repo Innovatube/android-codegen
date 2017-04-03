@@ -8,14 +8,22 @@
     },
     "app_name": {
       "message": "What are you calling your app?"
+    },"enable_manual_login": {
+      "message": "Do you want to enable manual login?",
+      "type": "boolean"
+    },"enable_firebase_login": {
+      "message": "Do you want to enable Firebase Authentication(facebook and google)?",
+      "type": "boolean"
     },
     "enable_facebook_login": {
       "message": "Do you want to enable Facebook Login?",
-      "type": "boolean"
+      "type": "boolean",
+      "require_false":"enable_firebase_login"
     },
     "enable_google_login": {
       "message": "Do you want to enable Google Login?",
-      "type": "boolean"
+      "type": "boolean",
+      "require_false":"enable_firebase_login"
     },
     "facebook_app_id": {
       "message": "Enter your facebook app id: (leave it empty to create a new facebook app)",
@@ -50,6 +58,13 @@
         "require_true": [
           "enable_google_login"
         ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/login/LoginPresenter.java",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/login/LoginPresenter.java",
+        "require_true": [
+          "enable_firebase_login"
+        ]
       }
     ],
     "merge_template_file": [
@@ -73,11 +88,30 @@
   "extra_tasks": [
     {
       "name": "generate_facebook_hash",
-      "require_true": ["enable_facebook_login"],
-      "require_false": ["facebook_app_id"]
-    },{
+      "require_true": [
+        "enable_facebook_login"
+      ],
+      "require_false": [
+        "facebook_app_id"
+      ]
+    },
+    {
       "name": "generate_google_config",
-      "require_true": ["enable_google_login"]
+      "require_true": [
+        "enable_google_login"
+      ]
+    },
+    {
+      "name": "generate_facebook_hash",
+      "require_true": [
+        "enable_firebase_login"
+      ]
+    },
+    {
+      "name": "generate_google_config",
+      "require_true": [
+        "enable_firebase_login"
+      ]
     }
   ]
 }

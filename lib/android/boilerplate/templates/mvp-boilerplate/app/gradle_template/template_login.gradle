@@ -4,10 +4,13 @@ dependencies {
     apt "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"
     compile "com.google.dagger:dagger:${dagger2Version}"
     apt "com.google.dagger:dagger-compiler:${dagger2Version}"
-    <% if enable_google_login %>
+    <% if enable_google_login || enable_firebase_login%>
     compile "com.google.android.gms:play-services-auth:${playServiceVersion}"
     <% end %>
-    <% if enable_facebook_login %>
+    <% if enable_facebook_login || enable_firebase_login %>
     compile "com.facebook.android:facebook-android-sdk:${facebookSdkVersion}"
+    <% end %>
+    <% if enable_firebase_login %>
+    compile "com.google.firebase:firebase-auth:${playServiceVersion}"
     <% end %>
 }

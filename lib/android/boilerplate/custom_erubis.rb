@@ -42,4 +42,13 @@ class CustomErubis < Erubis::Eruby
   def activity_name
     ''
   end
+  def enable_firebase_login
+    false
+  end
+  def enable_google_login
+    false
+  end
+  def enable_facebook_login
+    false
+  end
 end

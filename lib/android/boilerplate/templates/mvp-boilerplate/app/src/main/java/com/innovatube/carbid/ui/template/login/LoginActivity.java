@@ -24,6 +24,10 @@ public class LoginActivity extends BaseDialogActivity implements LoginMvpView {
     @Inject
     FacebookLoginPresenter mFacebookLoginPresenter;
     // <% end %>
+    <% if enable_firebase_login %>
+    @Inject
+    LoginPresenter mLoginPresenter;
+    // <% end %>
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,9 @@ public class LoginActivity extends BaseDialogActivity implements LoginMvpView {
         // <% end %>
         <% if enable_facebook_login %>
         mFacebookLoginPresenter.attachView(this);
+        // <% end %>
+        <% if enable_firebase_login %>
+        mLoginPresenter.attachView(this);
         // <% end %>
     }
 
@@ -60,21 +67,32 @@ public class LoginActivity extends BaseDialogActivity implements LoginMvpView {
     }
     // <% end %>
 
-    <% if enable_facebook_login %>
+    <% if enable_facebook_login || enable_firebase_login %>
     @OnClick(R.id.btn_login_facebook)
     public void loginFacebook() {
+        <% if enable_facebook_login %>
         mFacebookLoginPresenter.loginWithFacebook();
+        <% end %>
+        <% if enable_firebase_login%>
+        mLoginPresenter.loginWithFacebook();
+        <% end %>
     }
     <% end %>
 
+    <% if enable_manual_login %>
     @OnClick(R.id.btn_login)
     public void login() {
     }
-
-    <% if enable_google_login %>
+    <% end %>
+    <% if enable_google_login || enable_firebase_login%>
     @OnClick(R.id.btn_login_google_plus)
     public void loginGooglePlus() {
+        <% if enable_google_login %>
         mGoogleSignInPresenter.loginWithGoogle();
+        <% end %>
+        <% if enable_firebase_login%>
+        mLoginPresenter.loginWithGoogle();
+        <% end %>
     }
     <% end %>
 
@@ -86,6 +104,9 @@ public class LoginActivity extends BaseDialogActivity implements LoginMvpView {
         <% end %>
         <% if enable_google_login %>
         mGoogleSignInPresenter.onActivityResult(requestCode, resultCode, data);
+        <% end %>
+        <% if enable_firebase_login %>
+        mLoginPresenter.onActivityResult(requestCode, resultCode, data);
         <% end %>
     }
 

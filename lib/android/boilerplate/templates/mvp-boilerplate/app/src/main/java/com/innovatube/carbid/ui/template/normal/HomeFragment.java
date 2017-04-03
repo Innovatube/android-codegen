@@ -12,6 +12,9 @@ import <%= package_name %>.R;
  * Created by quanlt on 3/17/17.
  */
 
+
+
+
 public class <%= activity_name.capitalize %>Fragment extends Fragment {
 
     @Override

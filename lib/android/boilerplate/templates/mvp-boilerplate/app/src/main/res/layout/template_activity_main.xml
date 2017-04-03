@@ -4,7 +4,8 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="<%= package_name %>.ui.normal.HomeActivity">
+    tools:context="<%= package_name %>.ui.<%= sub_package_name %>.<%= activity_name.capitalize %>Activity">
+
 
     <FrameLayout
         android:id="@+id/main_container"
