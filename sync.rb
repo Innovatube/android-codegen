@@ -1,6 +1,7 @@
 require 'json'
 
 def sync_template
+  puts 'Removing mvp-boilerplate'
   Dir.chdir 'lib/android/boilerplate/templates'
   FileUtils.remove_dir('mvp-boilerplate') if File.exist?('mvp-boilerplate')
   system('git clone -b develop https://github.com/innovatube/android-template mvp-boilerplate')
