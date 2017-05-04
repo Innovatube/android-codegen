@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<template
+        format="5"
+        revision="1"
+        name="Generate Presenter and MvpView"
+        minApi="10"
+        minBuildApi="10"
+        description="Generate BlankPresenter and MvpView">
+
+    <category value="Innovatube"/>
+
+    <formfactor value="Mobile"/>
+
+
+    <parameter
+            id="featureName"
+            name="Fragment name"
+            type="string"
+            default="Main"/>
+
+    <parameter
+            id="presenterName"
+            name="Presenter Name"
+            type="string"
+            constraints="class|unique|nonempty"
+            suggest="${featureName?cap_first}Presenter"
+            default="MainPresenter"
+            help="The name of the layout to create for the activity"/>
+
+    <parameter
+            id="viewName"
+            name="View Name"
+            type="string"
+            constraints="class|unique|nonempty"
+            suggest="${featureName?cap_first}MvpView"
+            default="MainMvpView"
+            help="The name of the layout to create for the activity"/>
+    <parameter
+            id="useBaseClass"
+            name="Use BasePresenter &amp; BaseMvpView"
+            type="boolean"
+            default="true"
+            help="Use BasePresenter and BaseMvpView"/>
+    <globals file="globals.xml.ftl"/>
+
+    <execute file="recipe.xml.ftl"/>
+
+</template>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<template
+        format="5"
+        revision="1"
+        name="MVP Activity"
+        minApi="10"
+        minBuildApi="10"
+        description="Generate Fragment">
+
+    <category value="Innovatube"/>
+
+    <formfactor value="Mobile"/>
+
+    <parameter
+            id="packageName"
+            name="Package name"
+            type="string"
+            constraints="package"
+            default="com.innovatube.android" />
+
+    <parameter
+            id="className"
+            name="Fragment name"
+            type="string"
+            constraints="class|unique|nonempty"
+            default="MainFragment"/>
+
+    <parameter
+            id="layoutName"
+            name="Layout Name"
+            type="string"
+            constraints="layout|unique|nonempty"
+            suggest="fragment_${classToResource(className)}"
+            default="fragment_main"
+            help="The name of the layout to create for the fragment"/>
+    <parameter
+            id="includeRecycler"
+            name="Include RecyclerView"
+            type="boolean"
+            default="false"/>
+
+    <parameter
+            id="adapterName"
+            name="Adapter Name"
+            type="string"
+            constraints="class|unique|nonempty"
+            suggest="${camelCaseToUnderscore(classToResource(className))?cap_first}Adapter"
+            default="MainAdapter"
+            visibility="includeRecycler"
+            help="The name of the item layout to create for the RecyclerView"/>
+    <parameter
+            id="itemLayout"
+            name="Item Layout Name"
+            type="string"
+            constraints="layout|unique|nonempty"
+            suggest="item_${classToResource(className)}"
+            default="item_main"
+            visibility="includeRecycler"
+            help="The name of the item layout to create for the adapter of the RecyclerView"/>
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_base_activity.png</thumb>
+    </thumbs>
+
+
+    <globals file="globals.xml.ftl"/>
+
+    <execute file="recipe.xml.ftl"/>
+
+</template>

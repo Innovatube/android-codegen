@@ -1,0 +1,55 @@
+<idea-plugin>
+    <id>com.innovatube.android</id>
+    <name>Android Codegen</name>
+    <version>1.0</version>
+    <vendor email="ethan.le@innovatube.com" url="https://innovatube.com">Innovatube</vendor>
+
+    <description><![CDATA[
+      Android codegen - Under heavy construction
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>org.jetbrains.android</depends>
+
+    <application-components>
+        <!-- Add your application components here -->
+        <component>
+            <implementation-class>com.innovatube.android.InnovatubePluginRegistration</implementation-class>
+        </component>
+    </application-components>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+        <group id="AndroidCodeGen.NewMenu">
+            <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewElement"/>
+            <group id="AndroidCodeGen.NewMenu.Innovatube"
+                   popup="true"
+                   text="Android Codegen"
+                   description="Android Codegen menu">
+            </group>
+        </group>
+        <action id="GenerateAdapter" class="com.innovatube.android.AdapterAction" text="Generate Adapter"
+                description="Generate Adapter for RecyclerView">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>

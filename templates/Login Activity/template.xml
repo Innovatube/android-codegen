@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="Droidcon Activity"
+    minApi="10"
+    minBuildApi="10"
+    description="Create login activity with facebook &amp; google +1">
+
+    <category value="Innovatube" />
+
+    <formfactor value="Mobile" />
+
+
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.innovatube.android" />
+
+    <parameter
+        id="activityClass"
+        name="Title"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="TemplateActivity"
+        help="The name of the login activity" />
+
+    <parameter
+            id="layoutName"
+            name="Layout Name"
+            type="string"
+            constraints="layout|unique|nonempty"
+            suggest="activity_${classToResource(activityClass)}"
+            default="fragment_empty"
+            help="The name of the layout to create for the activity"/>
+
+    <parameter
+            id="superClass"
+            name="Super Class"
+            type="enum"
+            default="BaseActivityWithDialog"
+            constraints="class|unique|nonempty"
+            help="The name of the super class to use">
+            <option id="BaseActivityWithDialog">BaseActivityWithDialog</option>
+            <option id="BaseActivity">BaseActivity</option>
+            <option id="AppCompatActivity">AppCompatActivity</option>
+    </parameter>
+
+    <parameter
+            id="activityTitle"
+            name="Title"
+            type="string"
+            constraints="nonempty"
+            default="MainActivity"
+            suggest="${activityClass}"
+            help="The name of the activity. For launcher activities, the application title."/>
+
+    <parameter
+            id="parentActivityClass"
+            name="Hierarchical Parent"
+            type="string"
+            constraints="activity|exists|empty"
+            default=""
+            help="The hierarchical parent activity, used to provide a default implementation for the 'Up' button"/>
+
+    <parameter
+            id="isLauncher"
+            name="Launcher Activity"
+            type="boolean"
+            default="false"
+            help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher" />
+
+    <parameter
+            id="manualLogin"
+            name="Manual login"
+            type="boolean"
+            default="true"
+            help="If true, this activity can login with email/password" />
+
+    <parameter
+            id="loginWithFacebook"
+            name="Login with Facebook"
+            type="boolean"
+            default="false"
+            help="If true, this activity can login with Facebook" />
+
+    <parameter
+            id="loginWithGoogle"
+            name="Login with Google"
+            type="boolean"
+            default="false"
+            help="If true, this activity can login with Google" />
+
+    <parameter
+            id="facebookAppId"
+            visibility="loginWithFacebook"
+            name="Facebook App Id"
+            type="string"
+            help="App id of your facebook app" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_base_back_activity.png</thumb>
+        <thumb superClass="Activity">template_base_activity.png</thumb>
+        <thumb superClass="AppCompatActivity">template_base_back_activity.png</thumb>
+    </thumbs>
+
+
+
+    <globals file="globals.xml.ftl" />
+
+    <execute file="recipe.xml.ftl" />
+
+</template>

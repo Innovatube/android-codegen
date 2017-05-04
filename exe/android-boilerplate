@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'android/boilerplate'
-
-AndroidBoilerplate::AndroidGenerator.start ARGV
