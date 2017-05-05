@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="MVP Project"
+    minApi="11"
+    minBuildApi="22"
+    description="Creates a new mvp project">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+    <parameter
+            id="packageName"
+            name="Package name"
+            type="string"
+            constraints="package"
+            default="com.innovatube.android" />
+
+    <parameter
+        id="rxVersion"
+        name="RXJava Version"
+        type="enum"
+        default="rxJava1"
+        help="Which library you want" >
+        <option id="rxJava1">rxJava1</option>
+        <option id="rxJava2">rxJava2</option>
+    </parameter>
+    
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_mvp_project.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
