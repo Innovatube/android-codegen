@@ -121,3 +121,8 @@ Android plugin also comes up with some extra functions:
 - slashedPackageName(string) //com.innovatube.example becomes com/innovatube/example
 - underscoreToCamelCase(string) //main_activity becomes MainActivity
 - applicationPackage //present application package name
+
+####Include your template to plugin
+Simply copy your template folder to `templates`  
+To publish new build: increase version in `gradle.properties` and run `gradle buildPlugin`  
+To run your Android Studio and test your plugin: run `gradle runIdea`  
