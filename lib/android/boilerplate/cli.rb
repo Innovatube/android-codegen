@@ -16,25 +16,21 @@ require_relative 'custom_erubis'
 module AndroidBoilerplate
   class AndroidGenerator < Thor
 
-    desc 'generate', 'this command will generate boilerplate project'
+    desc 'generate', 'generate boilerplate code with config file'
 
-    def generate
-      dir = File.join(File.dirname(__FILE__), 'templates')
-      new_options = Hash.new
-      templates = Array.new
-      Dir["#{dir}/*.json"].each { |f| templates.push(f.gsub(/#{AndroidBoilerplate::Utilities.encode_string(File.dirname(f))}\/(.*?)-config.json/, '\1')) }
-      continue = false;
+    def generate(file)
+      config = JSON.parse(File.read(file));
       begin
-        say "What template do you want to generate?\nThe available templates are: "
-        say "#{templates}", :green
-        template = ask('template: ', :limited_to => templates)
-        puts template
-        config_file = File.read(File.join(File.dirname(__FILE__), 'templates', "#{template}-config.json"));
+        new_options = Hash.new
+        config.each do |key, value|
+          new_options[key] = value
+        end
+        config_file = File.read(File.join(File.dirname(__FILE__), 'templates', 'starter-boilerplate-config.json'));
         param_json = JSON.parse(config_file)
         param_json['params'].keys.each { |param|
           next if !param_json['params'][param]['require_true'].nil? && !new_options[param_json['params'][param]['require_true']]
           next if !param_json['params'][param]['require_false'].nil? && new_options[param_json['params'][param]['require_false']]
-          next if !new_options[param].nil? && in_white_list_config?(param)
+          next if !new_options[param].nil?
           say param_json['params'][param]['message']
           if param_json['params'][param]['type'] == 'model'
             select_model(new_options)
@@ -59,7 +55,7 @@ module AndroidBoilerplate
           end
 
         }
-        new_options['base_dir'] = File.join(File.dirname(__FILE__), 'templates', 'mvp-boilerplate')
+        new_options['base_dir'] = File.join(File.dirname(__FILE__), 'templates', 'starter-boilerplate')
         new_options['directory']
         new_options['app_name']
         if new_options['directory'] == ''
@@ -82,23 +78,123 @@ module AndroidBoilerplate
             end
           end
         end
-        unless param_json['extra_tasks'].nil?
-          param_json['extra_tasks'].each do |task|
-            next unless AndroidBoilerplate::Utilities.task_satisfy?(task, new_options)
-            case task['name']
-              when 'swagger_codegen'
-                swagger_codegen(new_options)
-              when 'generate_facebook_hash'
-                generate_facebook_hash(new_options)
-              when 'generate_google_config'
-                generate_google_config new_options
-            end
-          end
+        unless AndroidBoilerplate::Utilities.command_available?('java')
+          puts 'Java 7 or higher is required to run swagger-codegen'
+          return
         end
-        continue = ask('Do you want to generate another templates?', :limited_to => %w(yes no)) == 'yes'
-      end while continue
-
+        if new_options['swagger_file'].nil?
+          swagger_file = ask('Enter path name for swagger file (url or local path, leave it empty to exit): ')
+        else
+          swagger_file = new_options['swagger_file']
+        end
+        return if swagger_file == ''
+        swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore')
+        swagger_config = File.join(File.dirname(__FILE__), 'swagger', 'swagger-config.json')
+        swagger_config_json = JSON.parse(File.read(swagger_config));
+        swagger_config_json['modelPackage'] = "#{new_options['package_name']}.data.models"
+        swagger_config_json['apiPackage'] = "#{new_options['package_name']}.data.remote"
+        if new_options['directory'] == ''
+          directory = new_options['app_name']
+        else
+          directory = "#{new_options['directory']}/#{new_options['app_name']}"
+        end
+        directory = "#{directory}/app"
+        target_swagger_ignore = File.join(directory, '.swagger-codegen-ignore')
+        FileUtils.mkpath (File.dirname(target_swagger_ignore)) unless File.exist?(File.dirname(target_swagger_ignore))
+        FileUtils.cp(swagger_ignore, target_swagger_ignore)
+        File.write(File.join(directory, 'swagger-config.json'), JSON.pretty_generate(swagger_config_json))
+        swagger_config = File.join(directory, 'swagger-config.json')
+        swagger_codegen_path = File.join(File.dirname(__FILE__), 'swagger-codegen-cli-2.2.4-SNAPSHOT.jar')
+        system("java -jar #{swagger_codegen_path} generate -i #{swagger_file} -l java  -o #{directory} -c #{swagger_config}")
+        puts "Let's the party begin :tada: :tada:"
+      rescue Error
+        puts 'unable to generate code'
+      end
     end
+
+    # desc 'generate', 'this command will generate boilerplate project'
+
+    # def generate
+    #   dir = File.join(File.dirname(__FILE__), 'templates')
+    #   new_options = Hash.new
+    #   templates = Array.new
+    #   Dir["#{dir}/*.json"].each { |f| templates.push(f.gsub(/#{AndroidBoilerplate::Utilities.encode_string(File.dirname(f))}\/(.*?)-config.json/, '\1')) }
+    #   continue = false;
+    #   begin
+    #     say "What template do you want to generate?\nThe available templates are: "
+    #     say "#{templates}", :green
+    #     template = ask('template: ', :limited_to => templates)
+    #     puts template
+    #     config_file = File.read(File.join(File.dirname(__FILE__), 'templates', "#{template}-config.json"));
+    #     param_json = JSON.parse(config_file)
+    #     param_json['params'].keys.each { |param|
+    #       next if !param_json['params'][param]['require_true'].nil? && !new_options[param_json['params'][param]['require_true']]
+    #       next if !param_json['params'][param]['require_false'].nil? && new_options[param_json['params'][param]['require_false']]
+    #       next if !new_options[param].nil? && in_white_list_config?(param)
+    #       say param_json['params'][param]['message']
+    #       if param_json['params'][param]['type'] == 'model'
+    #         select_model(new_options)
+    #       elsif !param_json['params'][param]['limited_to'].nil?
+    #         command_option = Hash.new
+    #         command_option[:limited_to] = param_json['params'][param]['limited_to'].split(',').map(&:strip)
+    #         home_template = ask(param, command_option)
+    #         puts home_template
+    #         new_options[home_template] = true
+    #       else
+    #         command_option = Hash.new
+    #         command_option[:limited_to] = %w(yes no) if param_json['params'][param]['type'] == 'boolean'
+    #         if command_option.size!=0
+    #           new_options[param] = ask(param, command_option)
+    #         else
+    #           new_options[param] = ask(param)
+    #         end
+    #
+    #         if param_json['params'][param]['type'] == 'boolean'
+    #           new_options[param] = new_options[param] == 'yes'
+    #         end
+    #       end
+    #
+    #     }
+    #     new_options['base_dir'] = File.join(File.dirname(__FILE__), 'templates', 'mvp-boilerplate')
+    #     new_options['directory']
+    #     new_options['app_name']
+    #     if new_options['directory'] == ''
+    #       new_options['target_dir'] = new_options['app_name']
+    #     else
+    #       new_options['target_dir'] = "#{new_options['directory']}/#{new_options['app_name']}"
+    #     end
+    #     erubis = CustomErubis.new(config_file)
+    #     param_json = JSON.parse(erubis.result(new_options))
+    #     generator = AndroidBoilerplate::Generator.new(new_options)
+    #     task_list = %w(copy_template_directory copy_template_file copy_file copy_directory merge_template_file)
+    #     task_list.each do |task_name|
+    #       next if param_json['tasks'][task_name].nil?
+    #       param_json['tasks'][task_name].each do |task|
+    #         next unless AndroidBoilerplate::Utilities.task_satisfy?(task, new_options)
+    #         if task_name == 'merge_template_file'
+    #           generator.merge_template_file(task['from'], task['to'], task['merge_type'])
+    #         else
+    #           generator.send(task_name, task['from'], task['to'], task['exclude']) unless param_json['tasks'][task_name].nil?
+    #         end
+    #       end
+    #     end
+    #     unless param_json['extra_tasks'].nil?
+    #       param_json['extra_tasks'].each do |task|
+    #         next unless AndroidBoilerplate::Utilities.task_satisfy?(task, new_options)
+    #         case task['name']
+    #           when 'swagger_codegen'
+    #             swagger_codegen(new_options)
+    #           when 'generate_facebook_hash'
+    #             generate_facebook_hash(new_options)
+    #           when 'generate_google_config'
+    #             generate_google_config new_options
+    #         end
+    #       end
+    #     end
+    #     continue = ask('Do you want to generate another templates?', :limited_to => %w(yes no)) == 'yes'
+    #   end while continue
+    #
+    # end
 
     desc 'generate-google-config', 'Generate Google play config'
     option :home_directory, :type => :boolean
@@ -127,7 +223,7 @@ module AndroidBoilerplate
 
       say "Navigate to #{url} to set up project and download config file with the following info"
       say "Key hash: #{keystore}"
-      open_browser url
+      open_browser url ``
     end
 
     desc 'generate-facebook-hash', 'Generate key hash'
@@ -179,22 +275,11 @@ module AndroidBoilerplate
       end
       yaml_file = ask('Enter path name for swagger file (url or local path, leave it empty to exit): ')
       return if yaml_file == ''
-      old_options['generate_rx_java2'] = (ask('Do you want to generate RxJava2 alongside with model?', :limited_to => %w(yes no)) == 'yes')
+      old_options['generate_rx_java2'] = (ask('Do you want to generate RxJava alongside with model?', :limited_to => %w(yes no)) == 'yes')
       model_package = "#{old_options['package_name']}.data.models"
-      api_package = "#{old_options['package_name']}.api"
-      swagger_ignore = nil
-      swagger_gradle = nil
-      if old_options['generate_rx_java2']
-        swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore-retrofit2rx2')
-        swagger_gradle = File.join(File.dirname(__FILE__), 'templates', 'mvp-boilerplate/app/gradle_template/template_swagger_rxjava2.gradle')
-      else
-        swagger_gradle = File.join(File.dirname(__FILE__), 'templates', 'mvp-boilerplate/app/gradle_template/template_swagger_model.gradle')
-        swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore-model')
-      end
-      swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore-model') unless old_options['generate_rx_java2']
+      api_package = "#{old_options['package_name']}.data.remote"
+      swagger_ignore = File.join(File.dirname(__FILE__), 'swagger', '.swagger-codegen-ignore')
       swagger_config = File.join(File.dirname(__FILE__), 'swagger', 'swagger-config.json')
-
-
       if old_options['directory'] == ''
         directory = old_options['app_name']
       else
@@ -202,11 +287,9 @@ module AndroidBoilerplate
       end
       directory = "#{directory}/app"
       target_swagger_ignore = File.join(directory, '.swagger-codegen-ignore')
-      generate = AndroidBoilerplate::Generator.new old_options
-      generate.merge_template_file(swagger_gradle, File.join(directory, 'build.gradle'), 'app_dependencies')
       FileUtils.mkpath (File.dirname(target_swagger_ignore)) unless File.exist?(File.dirname(target_swagger_ignore))
       FileUtils.cp(swagger_ignore, target_swagger_ignore)
-      swagger_codegen_path = File.join(File.dirname(__FILE__), 'swagger-codegen-cli-2.2.3-SNAPSHOT.jar')
+      swagger_codegen_path = File.join(File.dirname(__FILE__), 'swagger-codegen-cli-2.2.4-SNAPSHOT.jar')
       system("java -jar #{swagger_codegen_path} generate -i #{yaml_file} -l java --model-package #{model_package} --api-package #{api_package} -o #{directory} -c #{swagger_config}")
     end
 

@@ -1,0 +1,185 @@
+{
+  "params": {
+    "directory": {
+      "message": "What is the directory?"
+    },
+    "package_name": {
+      "message": "What is your package name?"
+    },
+    "app_name": {
+      "message": "What are you calling your app?"
+    },
+    "target_sdk": {
+      "message": "What is the target sdk?"
+    },
+    "min_sdk": {
+      "message": "What is the minimum sdk you want to support?"
+    }
+  },
+  "tasks": {
+    "copy_template_directory": [
+      {
+        "from": "<%= base_dir %>",
+        "to": "<%= target_dir %>",
+        "exclude": [
+          "/template_",
+          "/TemplateModel",
+          "/java/"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>",
+        "exclude": [
+          "/template/",
+          "/template_"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/test/java/com/innovatube/carbid",
+        "to": "<%= target_dir %>/app/src/test/java/<%= package_name.gsub('.','/') %>",
+        "exclude": [
+          "/template/",
+          "/template_"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/androidTest/java/com/innovatube/carbid",
+        "to": "<%= target_dir %>/app/src/androidTest/java/<%= package_name.gsub('.','/') %>",
+        "exclude": [
+          "/template/",
+          "/template_"
+        ]
+      }
+    ],
+    "copy_template_file": [
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/bottom/BaseBottomNavigationActivity.java",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/<%= activity_name.capitalize %>Activity.java",
+        "require_true": [
+          "bottom_navigation"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_base_bottom_navigation.xml",
+        "to": "<%= target_dir %>/app/src/main/res/layout/activity_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "bottom_navigation"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/menu/template_navigation_bottom_items.xml",
+        "to": "<%= target_dir %>/app/src/main/res/menu/<%= to_snake_case(activity_name) %>_items.xml",
+        "require_true": [
+          "bottom_navigation"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/drawer/BaseNavigationDrawerActivity.java",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name %>/<%= activity_name.capitalize %>Activity.java",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_base_navigation_drawer.xml",
+        "to": "<%= target_dir %>/app/src/main/res/layout/activity_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_nav_header_base_navigation_drawer.xml",
+        "to": "<%= target_dir %>/app/src/main/res/layout/nav_header_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_app_bar_base_navigation_drawer.xml",
+        "to": "<%= target_dir %>/app/src/main/res/layout/app_bar_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_content_base_navigation_drawer.xml",
+        "to": "<%= target_dir %>/app/src/main/res/layout/content_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/menu/template_activity_base_navigation_drawer.xml",
+        "to": "<%= target_dir %>/app/src/main/res/menu/<%= to_snake_case(activity_name) %>_navigation_drawer.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/menu/template_menu_base_navigation_drawer.xml",
+        "to": "<%= target_dir %>/app/src/main/res/menu/menu_<%= to_snake_case(activity_name) %>.xml",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/tabbed/BaseTabbedActivity.java",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name || '' %>/<%= activity_name.capitalize %>Activity.java",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      },{
+        "from": "<%= base_dir %>/app/src/main/java/com/innovatube/carbid/ui/template/tabbed/BaseTabbedFragment.java",
+        "to": "<%= target_dir %>/app/src/main/java/<%= package_name.gsub('.','/') %>/ui/<%= sub_package_name || '' %>/<%= activity_name.capitalize %>Fragment.java",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_activity_base_tabbed.xml",
+        "to": "<%= target_dir %>/app/src/main/res/layout/activity_<%= to_snake_case(activity_name)%>.xml",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/layout/template_fragment_base_tabbed.xml",
+        "to": "<%= target_dir %>/app/src/main/res/layout/fragment_<%= to_snake_case(activity_name)%>.xml",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/menu/template_menu_base_tabbed.xml",
+        "to": "<%= target_dir %>/app/src/main/res/menu/menu_<%= to_snake_case(activity_name)%>.xml",
+        "require_true": [
+          "tabbed_activity"
+        ]
+      }
+    ],
+    "merge_template_file": [
+      {
+        "from": "<%= base_dir %>/app/src/main/manifest_template/template_home.xml",
+        "to": "<%= target_dir %>/app/src/main/AndroidManifest.xml",
+        "merge_type": "manifest",
+        "require_true": [
+          "generate_home"
+        ]
+      },
+      {
+        "from": "<%= base_dir %>/app/src/main/res/values/template_drawer_strings.xml",
+        "to": "<%= target_dir %>/app/src/main/res/values/strings.xml",
+        "merge_type": "resources",
+        "require_true": [
+          "navigation_drawer"
+        ]
+      }
+    ]
+  },
+  "extra_tasks": [
+    {
+      "name": "swagger_codegen"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+ext{
+    supportLibrariesVersion = "25.3.1"
+    retrofit2Version = "2.3.0"
+    dagger2Version = "2.11"
+    okHttpVersion = "3.8.1"
+    rxAndroid2Version = "2.0.1"
+    rxJava2Version = "2.1.1"
+    playServiceVersion = "11.0.2"
+    butterKnifeVersion = "8.7.0"
+    facebookSdkVersion = "4.24.0"
+    materialDialogVersion = "0.9.4.5"
+    swaggerAnnotationsVersion = "1.5.12"
+    oltuVersion = "1.0.1"
+    jodatimeVersion = "2.9.4"
+}
