@@ -23,9 +23,14 @@ public class {{className}}<T> extends RecyclerView.Adapter<{{className}}.ViewHol
         this.mList = new ArrayList<>();
     }
 
-    public void setUserList(List<T> mList) {
+    public void setItemList(List<T> mList) {
         this.mList.clear();
         this.mList.addAll(mList);
+        notifyDataSetChanged();
+    }
+
+    public void addItem(T item){
+        this.mList.add(item);
         notifyDataSetChanged();
     }
 

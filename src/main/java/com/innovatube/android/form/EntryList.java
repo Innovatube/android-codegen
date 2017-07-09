@@ -148,6 +148,7 @@ public class EntryList extends JPanel implements StateChangeListener {
                     .collect(Collectors.toList()));
             scopes.put("packageName", mLocation.getPackageName());
             scopes.put("className", mLocation.getClassName());
+            scopes.put("layoutName", mPsiFile.getName().substring(0, mPsiFile.getName().lastIndexOf(".")));
             mustache.execute(writer, scopes);
             writer.flush();
             mCode.setText(writer.toString());
