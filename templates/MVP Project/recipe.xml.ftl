@@ -2,7 +2,7 @@
 <recipe>
 
     <classpath mavenUrl="com.neenbedankt.gradle.plugins:android-apt:1.8"/>
-    <classpath mavenUrl="io.realm:realm-gradle-plugin:3.1.4"/>
+    <classpath mavenUrl="io.realm:realm-gradle-plugin:3.4.0"/>
     <classpath mavenUrl='com.google.gms:google-services:3.1.0'/>
 
     <apply plugin="realm-android"/>
