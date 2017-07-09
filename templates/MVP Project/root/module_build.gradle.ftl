@@ -30,3 +30,4 @@ dependencies {
     provided "javax.annotation:jsr250-api:1.0"
     compile "com.intuit.sdp:sdp-android:1.0.4"
 }
+//please move com.neenbedankt.android-apt and realm-android to top of this file

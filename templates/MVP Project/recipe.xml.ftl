@@ -98,4 +98,7 @@
 
     <merge from="root/res/values-w820dp/dimens.xml.ftl"
            to="${escapeXmlAttribute(resOut)}/values-w820dp/dimens.xml"/>
+
+    <open file="${escapeXmlAttribute(resOut)}/values/strings.xml" />
+    <open file="${escapeXmlAttribute(projectOut)}/build.gradle" />
 </recipe>
