@@ -16,7 +16,11 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+<#if rxVersion == 'rxJava2'>
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+<#else>
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+</#if>
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -69,7 +73,11 @@ public interface RetrofitService {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(ENDPOINT)
                     .addConverterFactory(GsonConverterFactory.create(gson))
+                    <#if rxVersion == 'rxJava2'>
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    <#else>
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    </#if>
                     .client(client)
                     .build();
 
