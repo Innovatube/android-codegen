@@ -14,7 +14,7 @@
 
     <parameter
             id="featureName"
-            name="Fragment name"
+            name="Feature name"
             type="string"
             default="Main"/>
 

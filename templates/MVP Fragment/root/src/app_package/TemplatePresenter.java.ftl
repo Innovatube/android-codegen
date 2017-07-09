@@ -2,11 +2,11 @@ package ${packageName};
 <#if applicationPackage??>
 import ${applicationPackage}.ui.base.BasePresenter;
 </#if>
-
-/**
- * Created by quanlt on 4/30/17.
- */
+import javax.inject.Inject;
 
 public class ${featureName}Presenter extends BasePresenter<${featureName}MvpView> {
+    @Inject
+    public ${featureName}Presenter(){
 
+    }
 }
