@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 <#if applicationPackage??>
 import ${applicationPackage}.R;
-<#if superClass == 'BaseActivityWithDialog' || superClass =='BaseActivity'>
+<#if superClass == 'BaseDialogActivity' || superClass =='BaseActivity'>
 import ${applicationPackage}.ui.base.${superClass};
 </#if>
 </#if>
@@ -34,7 +34,7 @@ public class ${activityClass} extends ${superClass} implements ${featureName}Mvp
         super.onCreate(savedInstanceState);
         setContentView(R.layout.${layoutName});
         ButterKnife.bind(this);
-        <#if superClass == 'BaseActivityWithDialog' || superClass =='BaseActivity'>
+        <#if superClass == 'BaseDialogActivity' || superClass =='BaseActivity'>
         getActivityComponent().inject(this);
         </#if>
         <#if loginWithGoogle>
@@ -48,7 +48,7 @@ public class ${activityClass} extends ${superClass} implements ${featureName}Mvp
         </#if>
     }
 
-    <#if superClass == 'BaseActivityWithDialog'>
+    <#if superClass == 'BaseDialogActivity'>
     @Override
     protected void setupDialogTitle() {
         progressDialog.setTitle(title);

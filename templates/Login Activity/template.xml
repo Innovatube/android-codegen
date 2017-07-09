@@ -41,12 +41,11 @@
             id="superClass"
             name="Super Class"
             type="enum"
-            default="BaseActivityWithDialog"
+            default="BaseDialogActivity"
             constraints="class|unique|nonempty"
             help="The name of the super class to use">
-            <option id="BaseActivityWithDialog">BaseActivityWithDialog</option>
+            <option id="BaseDialogActivity">BaseDialogActivity</option>
             <option id="BaseActivity">BaseActivity</option>
-            <option id="AppCompatActivity">AppCompatActivity</option>
     </parameter>
 
     <parameter

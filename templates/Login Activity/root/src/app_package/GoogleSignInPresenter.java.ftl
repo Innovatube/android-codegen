@@ -12,7 +12,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.innovatube.carbid.ui.base.BasePresenter;
+import ${applicationPackage}.ui.base.BasePresenter;
 
 import javax.inject.Inject;
 
