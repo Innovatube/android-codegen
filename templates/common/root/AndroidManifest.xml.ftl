@@ -3,7 +3,9 @@
     <application>
         <activity android:name="${relativePackage}.${activityClass}"
                   android:label="@string/title_${activityToLayout(activityClass)}"
-
+        <#if hasNoActionBar>
+                  android:theme="@style/${themeNameNoActionBar}"
+        </#if>
         <#if buildApi gte 16 && parentActivityClass != "">
                   android:parentActivityName="${parentActivityClass}"
         </#if>>
