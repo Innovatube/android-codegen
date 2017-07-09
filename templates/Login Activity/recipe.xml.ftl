@@ -31,6 +31,8 @@
                to="${escapeXmlAttribute(debugResOut)}/values/facebook_login.xml" />
         <merge from="root/releaseRes/values/facebook_login.xml.ftl"
                to="${escapeXmlAttribute(releaseResOut)}/values/facebook_login.xml" />
+        <merge from="root/FacebookManifest.xml.ftl"
+               to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
     </#if>
     <#if loginWithGoogle>
         <instantiate from="root/src/app_package/GoogleSignInPresenter.java.ftl"

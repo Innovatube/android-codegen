@@ -44,7 +44,7 @@ public class ${activityClass} extends ${superClass} implements ${featureName}Mvp
         mFacebook${featureName}Presenter.attachView(this);
         </#if>
         <#if manualLogin>
-        m${featureName}.attachView(this);
+        m${featureName}Presenter.attachView(this);
         </#if>
     }
 

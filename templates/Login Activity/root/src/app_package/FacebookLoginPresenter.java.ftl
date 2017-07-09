@@ -32,8 +32,6 @@ public class Facebook${featureName}Presenter extends BasePresenter<${featureName
     @Inject
     public Facebook${featureName}Presenter(Activity mActivity) {
         this.mActivity = mActivity;
-
-        FacebookSdk.sdkInitialize(mActivity.getApplicationContext());
         mCallbackManager = CallbackManager.Factory.create();
     }
 
