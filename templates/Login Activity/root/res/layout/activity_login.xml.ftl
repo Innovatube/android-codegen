@@ -124,7 +124,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:background="@color/colorGooglePlus"
+                    android:background="@android:color/red"
                     android:text="Login G+"
                     android:textColor="@android:color/white" />
 
@@ -135,7 +135,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/colorFacebook"
+                    android:background="@android:color/blue"
                     android:text="Login Facebook"
                     android:textColor="@android:color/white" />
             </#if>
