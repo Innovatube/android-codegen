@@ -65,7 +65,15 @@ public class ${activityClass} extends ${superClass} implements ${featureName}Mvp
 
     @Override
     public void onDestroy() {
-        mGoogle${featureName}Presenter.onDestroy();
+        <#if loginWithGoogle>
+        mGoogle${featureName}Presenter.detachView();
+        </#if>
+        <#if loginWithFacebook>
+        mFacebook${featureName}Presenter.detachView();
+        </#if>
+        <#if manualLogin>
+        m${featureName}Presenter.detachView();
+        </#if>
         super.onDestroy();
     }
     </#if>

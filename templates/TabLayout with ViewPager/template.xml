@@ -15,6 +15,12 @@
     <formfactor value="Mobile"/>
 
     <parameter
+            id="packageName"
+            name="Package name"
+            type="string"
+            constraints="package"
+            default="com.innovatube.android" />
+    <parameter
             id="activityClass"
             name="Activity Name"
             type="string"
@@ -84,13 +90,6 @@
             constraints="activity|exists|empty"
             default=""
             help="The hierarchical parent activity, used to provide a default implementation for the 'Up' button"/>
-
-    <parameter
-            id="packageName"
-            name="Package name"
-            type="string"
-            constraints="package"
-            default="com.mycompany.myapp"/>
 
     <parameter
             id="isLauncher"

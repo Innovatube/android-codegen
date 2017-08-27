@@ -11,7 +11,12 @@
 
     <formfactor value="Mobile"/>
 
-
+    <parameter
+            id="packageName"
+            name="Package name"
+            type="string"
+            constraints="package"
+            default="com.innovatube.android" />
     <parameter
             id="featureName"
             name="Feature name"

@@ -2,15 +2,13 @@
 <recipe>
 
     <#if loginWithGoogle>
-        <classpath mavenUrl="com.google.gms:google-services:3.0.0"/>
+        <classpath mavenUrl="com.google.gms:google-services:3.1.0"/>
         <apply plugin="com.google.gms.google-services"/>
         <dependency mavenUrl="com.google.android.gms:play-services-auth:+"/>
     </#if>
     <#if loginWithFacebook>
         <dependency mavenUrl="com.facebook.android:facebook-android-sdk:+"/>
     </#if>
-
-
     <instantiate from="root/src/app_package/LoginActivity.java.ftl"
                     to="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
     <instantiate from="root/src/app_package/LoginMvpView.java.ftl"

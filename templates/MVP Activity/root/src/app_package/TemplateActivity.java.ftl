@@ -26,4 +26,9 @@ public class ${activityClass} extends BaseDialogActivity implements ${featureNam
     protected void setupDialogTitle() {
 
     }
+    @Override
+    protected void onDestroy() {
+        m${featureName}Presenter.detachView();
+        super.onDestroy();
+    }
 }
