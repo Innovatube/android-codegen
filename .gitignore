@@ -11,3 +11,8 @@
 # rspec failure tracking
 .rspec_status
 .DS_Store
+.gradle
+/build/
+gradle-app.setting
+.gradletasknamecache
+!gradle-wrapper.jar
