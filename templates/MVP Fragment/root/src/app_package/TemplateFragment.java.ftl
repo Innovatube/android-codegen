@@ -44,7 +44,6 @@ public class ${className} extends BaseDialogFragment implements ${featureName}Mv
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivityComponent().inject(this);
     }
 
     @Override
