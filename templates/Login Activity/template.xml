@@ -22,7 +22,7 @@
 
     <parameter
         id="activityClass"
-        name="Title"
+        name="Activity name"
         type="string"
         constraints="class|unique|nonempty"
         default="TemplateActivity"

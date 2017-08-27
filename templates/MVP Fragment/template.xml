@@ -44,7 +44,7 @@
             name="Adapter Name"
             type="string"
             constraints="class|unique|nonempty"
-            suggest="${camelCaseToUnderscore(classToResource(className))?cap_first}Adapter"
+            suggest="${underscoreToCamelCase(classToResource(className))}Adapter"
             default="MainAdapter"
             visibility="includeRecycler"
             help="The name of the item layout to create for the RecyclerView"/>

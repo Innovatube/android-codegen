@@ -92,4 +92,24 @@ public class TemplateWizardAction extends AnAction {
                 .build()
                 .show();
     }
+
+    private boolean isAvailable(DataContext dataContext) {
+        final Module module = LangDataKeys.MODULE.getData(dataContext);
+        final IdeView view = LangDataKeys.IDE_VIEW.getData(dataContext);
+
+        if (module == null ||
+                view == null ||
+                view.getDirectories().length == 0 ||
+                AndroidFacet.getInstance(module) == null) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void update(AnActionEvent e) {
+        DataContext dataContext = e.getDataContext();
+        super.update(e);
+        e.getPresentation().setVisible(isAvailable(dataContext));
+    }
 }

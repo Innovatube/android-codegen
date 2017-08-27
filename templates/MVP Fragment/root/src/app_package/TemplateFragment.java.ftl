@@ -45,13 +45,13 @@ public class ${className} extends BaseDialogFragment implements ${featureName}Mv
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivityComponent().inject(this);
-        m${featureName}Presenter.attachView(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.${layoutName}, container,false);
         ButterKnife.bind(this,view);
+        m${featureName}Presenter.attachView(this);
         <#if includeRecycler>
         m${adapterName} = new ${adapterName}();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -63,5 +63,11 @@ public class ${className} extends BaseDialogFragment implements ${featureName}Mv
     @Override
     protected void setupDialogTitle() {
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        m${featureName}Presenter.detachView();
+        super.onDestroyView();
     }
 }
